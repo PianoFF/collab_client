@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+html,
+body,
+#root,
+#app,
+#app > div {
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #047070, #89d1d9, white);
+}

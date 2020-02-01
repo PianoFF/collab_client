@@ -1,22 +1,17 @@
 import React, { Component } from "react"
 
-import Grid from "@material-ui/core/grid"
-import Paper from "@material-ui/core/paper"
-
+import "./FrontPage.css"
 class FrontPage extends Component {
   render() {
-    const style = {
-      paper: { marginLeft: 10, marginTop: 20, padding: 12 }
-    }
     return (
-      <Grid container justify={"center"} lg>
-        <Grid item spacing={4}>
-          <Paper style={style.paper}> box 1</Paper>
-        </Grid>
-        <Grid item spacing={4}>
-          <Paper style={style.paper}> box 2</Paper>
-        </Grid>
-      </Grid>
+      <div className="flex-container">
+        <div>
+          {" "}
+          1 sdfjipqewoij aasdpifj fdhsadfuh asdofuhqwefip gfauh aerogiuh
+          diapsdpfih
+        </div>
+        <div> 2 </div>
+      </div>
     )
   }
 }
