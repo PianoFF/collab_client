@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Manifesto } from "../components/Manifesto"
 
 import "./FrontPage.css"
 class FrontPage extends Component {
@@ -6,9 +7,7 @@ class FrontPage extends Component {
     return (
       <div className="flex-container">
         <div>
-          {" "}
-          1 sdfjipqewoij aasdpifj fdhsadfuh asdofuhqwefip gfauh aerogiuh
-          diapsdpfih
+          <Manifesto />
         </div>
         <div> 2 </div>
       </div>
