@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./App.css"
 import FrontPage from "./containers/FrontPage"
+import "semantic-ui-css/semantic.min.css"
 
 // import { ThemeProvider } from "styled-components"
 

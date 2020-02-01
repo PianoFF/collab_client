@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Manifesto } from "../components/Manifesto"
+import SignupLogin from "./SignupLogin"
 
 import "./FrontPage.css"
 class FrontPage extends Component {
@@ -9,7 +10,9 @@ class FrontPage extends Component {
         <div>
           <Manifesto />
         </div>
-        <div> 2 </div>
+        <div>
+          <SignupLogin />
+        </div>
       </div>
     )
   }
