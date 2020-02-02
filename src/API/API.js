@@ -16,7 +16,30 @@ const login = user => {
     body: JSON.stringify({
       user
     })
-  }).then(to_json)
+  })
+    .then(to_json)
+    .then(user => {
+      if (user.token) {
+        localStorage.token = user.token
+      }
+      return user
+    })
 }
 
-export default { login }
+const validate = () => {
+  return fetch(VALIDATE, {
+    method: "POST",
+    headers: {
+      Authorization: localStorage.token
+    }
+  })
+    .then(to_json)
+    .then(user => {
+      if (user.token) {
+        localStorage.token = user.token
+      }
+      return user
+    })
+}
+
+export default { login, validate }

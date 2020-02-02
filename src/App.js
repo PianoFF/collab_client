@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./App.css"
 import FrontPage from "./containers/FrontPage"
 import "semantic-ui-css/semantic.min.css"
+import API from "./API/API"
 
 // import { ThemeProvider } from "styled-components"
 
@@ -14,6 +15,10 @@ class App extends Component {
     this.setState({
       user: user
     })
+  }
+
+  componentDidMount() {
+    API.validate().then(user => this.setUser(user))
   }
 
   render() {
