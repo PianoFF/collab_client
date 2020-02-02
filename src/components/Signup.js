@@ -6,7 +6,7 @@ class Signup extends Component {
     first_name: "",
     last_name: "",
     email: "",
-    field: "Vocalist",
+    field: "vocalist",
     password: "",
     passsword_confirmation: ""
   }
@@ -24,10 +24,14 @@ class Signup extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault()
-    API.signup(this.state).then(user => {
-      this.props.onSuccess(user)
-      console.table(user)
-    })
+    API.signup(this.state)
+      .then(user => {
+        this.props.onSuccess(user)
+        console.table(user)
+      })
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
     this.setState({
       ...this.defaultState
     })

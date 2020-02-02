@@ -17,7 +17,11 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    API.login(this.state).then(user => this.props.onSuccess(user))
+    API.login(this.state)
+      .then(user => this.props.onSuccess(user))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   render() {

@@ -20,10 +20,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    API.validate().then(user => {
-      this.setUser(user)
-    })
+    if (API.hasToken()) {
+      API.validate().then(user => {
+        this.setUser(user)
+      })
+    }
   }
+
   handleLogout = e => {
     e.preventDefault()
     this.setUser(null)

@@ -8,7 +8,13 @@ const VALIDATE = `${COLLAB_ENDPOINT}/validate`
 
 const NEWPOST = `${COLLAB_ENDPOINT}/posts`
 
-const to_json = resp => resp.json()
+const to_json = resp => {
+  if (resp.ok) {
+    return resp.json()
+  } else {
+    throw resp.json()
+  }
+}
 
 const signup = user => {
   return fetch(SIGN_UP, {
@@ -65,6 +71,8 @@ const validate = () => {
     })
 }
 
+const hasToken = () => !!localStorage.token
+
 const newpost = post => {
   return fetch(NEWPOST, {
     method: "POST",
@@ -81,4 +89,4 @@ const newpost = post => {
 
 const clearToken = () => localStorage.removeItem("token")
 
-export default { login, signup, validate, newpost, clearToken }
+export default { login, signup, validate, newpost, clearToken, hasToken }
