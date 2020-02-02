@@ -19,6 +19,7 @@ class Login extends Component {
 
     API.login(this.state).then(user => this.props.onSuccess(user))
   }
+
   render() {
     const { email, password } = this.state
 

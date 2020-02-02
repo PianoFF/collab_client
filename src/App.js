@@ -1,24 +1,28 @@
 import React, { Component } from "react"
 import "./App.css"
 import FrontPage from "./containers/FrontPage"
-import "semantic-ui-css/semantic.min.css"
+import NewPostForm from "./components/NewPostForm"
 import API from "./API/API"
 
 // import { ThemeProvider } from "styled-components"
 
 class App extends Component {
   state = {
-    user: null
+    user: null,
+    validatedUser: false
   }
 
   setUser = user => {
     this.setState({
-      user: user
+      user: user,
+      validatedUser: !!user
     })
   }
 
   componentDidMount() {
-    API.validate().then(user => this.setUser(user))
+    API.validate().then(user => {
+      this.setUser(user)
+    })
   }
 
   render() {
@@ -27,6 +31,7 @@ class App extends Component {
     return (
       <div id="app">
         <FrontPage user={user} setUser={this.setUser} />
+        {user && <NewPostForm />}
       </div>
     )
   }

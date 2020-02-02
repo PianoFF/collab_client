@@ -6,6 +6,8 @@ const SIGN_UP = `${COLLAB_ENDPOINT}/signup`
 
 const VALIDATE = `${COLLAB_ENDPOINT}/validate`
 
+const NEWPOST = `${COLLAB_ENDPOINT}/posts`
+
 const to_json = resp => resp.json()
 
 const login = user => {
@@ -37,9 +39,24 @@ const validate = () => {
     .then(user => {
       if (user.token) {
         localStorage.token = user.token
+        return user
       }
-      return user
+      return null
     })
 }
 
-export default { login, validate }
+const newpost = post => {
+  return fetch(NEWPOST, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      post
+    })
+  }).then(to_json)
+}
+
+export default { login, validate, newpost }
