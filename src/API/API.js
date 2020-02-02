@@ -10,6 +10,26 @@ const NEWPOST = `${COLLAB_ENDPOINT}/posts`
 
 const to_json = resp => resp.json()
 
+const signup = user => {
+  return fetch(SIGN_UP, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify({
+      user
+    })
+  })
+    .then(to_json)
+    .then(user => {
+      if (user.token) {
+        localStorage.token = user.token
+      }
+      return user
+    })
+}
+
 const login = user => {
   // console.log(user)
   return fetch(LOG_IN, {
@@ -61,4 +81,4 @@ const newpost = post => {
 
 const clearToken = () => localStorage.removeItem("token")
 
-export default { login, validate, newpost, clearToken }
+export default { login, signup, validate, newpost, clearToken }

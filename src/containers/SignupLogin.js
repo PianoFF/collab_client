@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./SignupLogin.css"
-import { Signup } from "../components/Signup"
+import Signup from "../components/Signup"
 import Login from "../components/Login"
 
 class SignupLogin extends Component {
@@ -41,7 +41,11 @@ class SignupLogin extends Component {
               </a>
             </li>
           </ul>
-          {!user && !signUp ? <Login onSuccess={setUser} /> : <Signup />}
+          {!user && !signUp ? (
+            <Login onSuccess={setUser} />
+          ) : (
+            <Signup onSuccess={setUser} />
+          )}
         </div>
       </div>
     )
