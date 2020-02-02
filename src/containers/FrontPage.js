@@ -5,13 +5,15 @@ import SignupLogin from "./SignupLogin"
 import "./FrontPage.css"
 class FrontPage extends Component {
   render() {
+    const { setUser } = this.props
+
     return (
       <div className="flex-container">
         <div>
           <Manifesto />
         </div>
         <div>
-          <SignupLogin />
+          <SignupLogin setUser={setUser} />
         </div>
       </div>
     )

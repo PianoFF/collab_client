@@ -12,21 +12,21 @@ export const Signup = () => {
               <label>
                 First Name<span className="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autoComplete="off" />
             </div>
 
             <div className="field-wrap">
               <label>
                 Last Name<span className="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autoComplete="off" />
             </div>
 
             <div className="field-wrap">
               <label>
                 Email Address<span className="req">*</span>
               </label>
-              <input type="email" required autocomplete="off" />
+              <input type="email" required autoComplete="off" />
             </div>
 
             <div className="field-wrap">
@@ -43,14 +43,14 @@ export const Signup = () => {
               <label>
                 Set Password<span className="req">*</span>
               </label>
-              <input type="password" required autocomplete="off" />
+              <input type="password" required autoComplete="off" />
             </div>
 
             <div className="field-wrap">
               <label>
                 Confirm Password<span className="req">*</span>
               </label>
-              <input type="password" required autocomplete="off" />
+              <input type="password" required autoComplete="off" />
             </div>
 
             <button type="submit" className="button button-block">

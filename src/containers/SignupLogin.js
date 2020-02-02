@@ -24,6 +24,8 @@ class SignupLogin extends Component {
 
   render() {
     const { signUp } = this.state
+    const { user, setUser } = this.props
+    // console.log(this.props)
     return (
       <div className="tab-group">
         <div className="table">
@@ -39,7 +41,7 @@ class SignupLogin extends Component {
               </a>
             </li>
           </ul>
-          {signUp ? <Signup /> : <Login />}
+          {!user && !signUp ? <Login onSuccess={setUser} /> : <Signup />}
         </div>
       </div>
     )
