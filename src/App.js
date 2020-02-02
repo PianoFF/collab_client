@@ -24,13 +24,22 @@ class App extends Component {
       this.setUser(user)
     })
   }
+  handleLogout = e => {
+    e.preventDefault()
+    this.setUser(null)
+    API.clearToken()
+  }
 
   render() {
     const { user } = this.state
 
     return (
       <div id="app">
-        <FrontPage user={user} setUser={this.setUser} />
+        <FrontPage
+          user={user}
+          setUser={this.setUser}
+          logOut={this.handleLogout}
+        />
         {user && <NewPostForm />}
       </div>
     )

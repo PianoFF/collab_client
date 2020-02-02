@@ -59,4 +59,6 @@ const newpost = post => {
   }).then(to_json)
 }
 
-export default { login, validate, newpost }
+const clearToken = () => localStorage.removeItem("token")
+
+export default { login, validate, newpost, clearToken }
