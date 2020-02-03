@@ -52,7 +52,10 @@ class App extends Component {
           <Router>
             <div>
               <Navbar />
-              {/* <Route path="home" component={Home} /> */}
+              <Route
+                path="home"
+                render={routerProps => <Home {...routerProps} user={user} />}
+              />
             </div>
           </Router>
         )}

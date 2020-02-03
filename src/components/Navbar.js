@@ -6,7 +6,7 @@ class Navbar extends Component {
   render() {
     return (
       <header className="nav">
-        <img src="collab-logo.png" className="collab-logo sepia"></img>
+        <img src="collab-logo.png" className="collab-logo"></img>
         <NavLink
           to="/home"
           activeStyle={{ background: "#BF6C5A", color: "black" }}>
