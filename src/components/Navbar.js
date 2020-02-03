@@ -4,6 +4,8 @@ import "./Navbar.css"
 
 class Navbar extends Component {
   render() {
+    const { LogOut } = this.props
+
     return (
       <header className="nav">
         <img src="collab-logo.png" className="collab-logo"></img>
@@ -27,7 +29,9 @@ class Navbar extends Component {
           activeStyle={{ background: "#BF6C5A", color: "black" }}>
           Inbox
         </NavLink>
-        <Link activeStyle={{ background: "#BF6C5A", color: "black" }}>
+        <Link
+          activeStyle={{ background: "#BF6C5A", color: "black" }}
+          onClick={LogOut}>
           Log Out
         </Link>
       </header>

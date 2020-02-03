@@ -42,16 +42,10 @@ class App extends Component {
 
     return (
       <div id="app">
-        {!user && (
-          <FrontPage
-            user={user}
-            setUser={this.setUser}
-            // logOut={this.handleLogout}
-          />
-        )}
+        {!user && <FrontPage user={user} setUser={this.setUser} />}
         {user && (
           <Router>
-            <Navbar />
+            <Navbar LogOut={this.handleLogout} />
             <Route exact path={"/home"}>
               <Home user={user} />
             </Route>

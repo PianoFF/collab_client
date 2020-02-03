@@ -5,7 +5,7 @@ import SignupLogin from "./SignupLogin"
 import "./FrontPage.css"
 class FrontPage extends Component {
   render() {
-    const { setUser, logOut } = this.props
+    const { setUser } = this.props
 
     return (
       <div className="flex-container">
@@ -15,7 +15,6 @@ class FrontPage extends Component {
         <div>
           <SignupLogin setUser={setUser} />
         </div>
-        <button onClick={logOut}> Log out</button>
       </div>
     )
   }
