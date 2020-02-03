@@ -8,6 +8,10 @@ const VALIDATE = `${COLLAB_ENDPOINT}/validate`
 
 const NEWPOST = `${COLLAB_ENDPOINT}/posts`
 
+const ALL_USERS = `${COLLAB_ENDPOINT}/users`
+
+const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
+
 const to_json = resp => {
   if (resp.ok) {
     return resp.json()
@@ -87,6 +91,37 @@ const newpost = post => {
   }).then(to_json)
 }
 
+const all_users = () => {
+  return fetch(ALL_USERS, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    }
+  }).then(to_json)
+}
+
+const all_posts = () => {
+  return fetch(ALL_POSTS, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    }
+  }).then(to_json)
+}
+
 const clearToken = () => localStorage.removeItem("token")
 
-export default { login, signup, validate, newpost, clearToken, hasToken }
+export default {
+  login,
+  signup,
+  validate,
+  all_users,
+  all_posts,
+  newpost,
+  clearToken,
+  hasToken
+}

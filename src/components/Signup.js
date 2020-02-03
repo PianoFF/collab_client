@@ -28,7 +28,7 @@ class Signup extends Component {
     API.signup(this.state)
       .then(user => {
         this.props.onSuccess(user)
-        console.table(user)
+        // console.table(user)
       })
       .catch(errorPromise => {
         errorPromise.then(data => alert(data.errors))
