@@ -25,16 +25,25 @@ class Home extends Component {
       })
   }
 
-  sendMessage = () => {}
+  sendMessage = e => {
+    e.preventDefault()
+    this.setState({
+      toMessage: !this.state.toMessage
+    })
+  }
 
   render() {
-    const { posts, users } = this.state
+    const { posts, users, toMessage } = this.state
 
     return (
       <div className="flex-container">
         <div id="posts">
           <h1> Since you last signed in:</h1>
-          <PostsList posts={posts} sendMessage={this.sendMessage} />
+          <PostsList
+            posts={posts}
+            sendMessage={this.sendMessage}
+            toMessage={toMessage}
+          />
         </div>
         <div id="users">
           <h1> New Members:</h1>

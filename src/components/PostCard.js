@@ -25,7 +25,7 @@ const PostCard = ({ post, sendMessage }) => {
         </div>
 
         <div className="right">
-          <button className="generalBtn" onClick={sendMessage}>
+          <button id="message" onClick={sendMessage}>
             Message
           </button>
         </div>
