@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import "./Navbar.css"
 
 class Navbar extends Component {
@@ -27,6 +27,9 @@ class Navbar extends Component {
           activeStyle={{ background: "#BF6C5A", color: "black" }}>
           Inbox
         </NavLink>
+        <Link activeStyle={{ background: "#BF6C5A", color: "black" }}>
+          Log Out
+        </Link>
       </header>
     )
   }
