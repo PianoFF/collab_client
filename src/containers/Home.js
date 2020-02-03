@@ -1,8 +1,12 @@
 import React, { Component } from "react"
 
 class Home extends Component {
-  state = {}
+  state = {
+    posts: [],
+    users: []
+  }
 
+  componentDidMount() {}
   render() {
     return (
       <div className="flex-container">

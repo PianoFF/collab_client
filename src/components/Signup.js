@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import API from "../API/API"
+import "./Signup.css"
 
 class Signup extends Component {
   defaultState = {
