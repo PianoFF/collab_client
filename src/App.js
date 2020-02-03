@@ -1,5 +1,7 @@
 import React, { Component } from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import "./App.css"
+
 import FrontPage from "./containers/FrontPage"
 import NewPostForm from "./components/NewPostForm"
 import API from "./API/API"
@@ -38,12 +40,21 @@ class App extends Component {
 
     return (
       <div id="app">
-        <FrontPage
-          user={user}
-          setUser={this.setUser}
-          logOut={this.handleLogout}
-        />
-        {user && <NewPostForm />}
+        {!user && (
+          <FrontPage
+            user={user}
+            setUser={this.setUser}
+            // logOut={this.handleLogout}
+          />
+        )}
+        <Router>
+          <div>
+            <Route exact path="/" component={FrontPage} />
+            <Route path="home" component={Home} />
+          </div>
+        </Router>
+
+        {/* {user && <NewPostForm />} */}
       </div>
     )
   }
