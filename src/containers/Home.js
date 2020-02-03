@@ -7,7 +7,8 @@ import "./Home.css"
 class Home extends Component {
   state = {
     posts: [],
-    users: []
+    users: [],
+    toMessage: false
   }
 
   componentDidMount() {
@@ -24,6 +25,8 @@ class Home extends Component {
       })
   }
 
+  sendMessage = () => {}
+
   render() {
     const { posts, users } = this.state
 
@@ -31,7 +34,7 @@ class Home extends Component {
       <div className="flex-container">
         <div id="posts">
           <h1> Since you last signed in:</h1>
-          <PostsList posts={posts} />
+          <PostsList posts={posts} sendMessage={this.sendMessage} />
         </div>
         <div id="users">
           <h1> New Members:</h1>
