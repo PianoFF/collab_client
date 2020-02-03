@@ -5,6 +5,7 @@ import "./App.css"
 import FrontPage from "./containers/FrontPage"
 import NewPostForm from "./components/NewPostForm"
 import API from "./API/API"
+import Navbar from "./components/Navbar"
 
 // import { ThemeProvider } from "styled-components"
 
@@ -47,12 +48,14 @@ class App extends Component {
             // logOut={this.handleLogout}
           />
         )}
-        <Router>
-          <div>
-            <Route exact path="/" component={FrontPage} />
-            <Route path="home" component={Home} />
-          </div>
-        </Router>
+        {user && (
+          <Router>
+            <div>
+              <Navbar />
+              {/* <Route path="home" component={Home} /> */}
+            </div>
+          </Router>
+        )}
 
         {/* {user && <NewPostForm />} */}
       </div>
