@@ -1,0 +1,18 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.flex-container > div {
+  background-color: #bf6c5a;
+  width: 40%;
+  margin: 2%;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #f2b6a0, #bf6c5a);
+}

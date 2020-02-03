@@ -5,8 +5,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home">
-        <div> will this work?</div>
+      <div className="flex-container">
+        <div>recent posts:</div>
+        <div>recently registered users:</div>
       </div>
     )
   }
