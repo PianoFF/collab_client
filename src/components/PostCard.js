@@ -2,7 +2,7 @@ import React from "react"
 import "./PostCard.css"
 import NewMessage from "./NewMessage"
 
-const PostCard = ({ post, showMessageBox, toggleMessageBox }) => {
+const PostCard = ({ post, showMessageBox, toggleMessageBox, user }) => {
   return (
     <div className="card">
       <div className="title">
@@ -26,12 +26,14 @@ const PostCard = ({ post, showMessageBox, toggleMessageBox }) => {
         </div>
 
         <div className="right-btm-cnr">
-          <button id="message" onClick={() => toggleMessageBox(post.id)}>
-            {showMessageBox === post.id ? "Cancel" : "Message"}
-          </button>
+          {post.user.id !== user.id && (
+            <button id="message" onClick={() => toggleMessageBox(post.id)}>
+              {showMessageBox === post.id ? "Cancel" : "Message"}
+            </button>
+          )}
         </div>
         <div id="message-box">
-          {showMessageBox === post.id && <NewMessage />}
+          {showMessageBox === post.id && <NewMessage recipient={post.user} />}
         </div>
       </div>
     </div>

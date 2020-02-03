@@ -12,6 +12,8 @@ const ALL_USERS = `${COLLAB_ENDPOINT}/users`
 
 const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
 
+const NEW_MESSAGE = `${COLLAB_ENDPOINT}/messages`
+
 const to_json = resp => {
   if (resp.ok) {
     return resp.json()
@@ -113,6 +115,20 @@ const all_posts = () => {
   }).then(to_json)
 }
 
+const new_message = message => {
+  return fetch(NEW_MESSAGE, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      message
+    })
+  }).then(to_json)
+}
+
 const clearToken = () => localStorage.removeItem("token")
 
 export default {
@@ -122,6 +138,7 @@ export default {
   all_users,
   all_posts,
   newpost,
+  new_message,
   clearToken,
   hasToken
 }

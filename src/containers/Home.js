@@ -39,6 +39,7 @@ class Home extends Component {
 
   render() {
     const { posts, users, showMessageBox } = this.state
+    const { user } = this.props
 
     return (
       <div className="flex-container">
@@ -48,6 +49,7 @@ class Home extends Component {
             posts={posts}
             showMessageBox={showMessageBox}
             toggleMessageBox={this.toggleMessageBox}
+            user={user}
           />
         </div>
         <div id="users">
