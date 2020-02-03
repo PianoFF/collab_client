@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import API from "../API/API"
 import UsersList from "../components/UsersList"
 import PostsList from "../components/PostsList"
+import "./Home.css"
 
 class Home extends Component {
   state = {
@@ -28,11 +29,11 @@ class Home extends Component {
 
     return (
       <div className="flex-container">
-        <div>
+        <div id="posts">
           <h1> Since you last signed in:</h1>
           <PostsList posts={posts} />
         </div>
-        <div>
+        <div id="users">
           <h1> New Members:</h1>
           <UsersList users={users} />
         </div>

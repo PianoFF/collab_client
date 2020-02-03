@@ -12,7 +12,13 @@
 .flex-container > div {
   background-color: #bf6c5a;
   width: 40%;
+  border-radius: 3%;
   margin: 2%;
   text-align: center;
   background-image: linear-gradient(to bottom right, #f2b6a0, #bf6c5a);
+}
+
+div#posts {
+  height: 90%;
+  overflow: scroll;
 }
