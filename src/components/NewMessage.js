@@ -2,10 +2,12 @@ import React, { Component } from "react"
 
 class NewMessage extends Component {
   render() {
+    const {} = this.props
+
     return (
       <div>
-        <h1> I'm a new message </h1>
-        <button> x </button>
+        {/* <button id="close-tab">x</button> */}
+        <h2> I'm a new message </h2>
       </div>
     )
   }

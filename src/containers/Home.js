@@ -8,7 +8,7 @@ class Home extends Component {
   state = {
     posts: [],
     users: [],
-    toMessage: false
+    showMessageBox: null
   }
 
   componentDidMount() {
@@ -25,15 +25,20 @@ class Home extends Component {
       })
   }
 
-  sendMessage = e => {
-    e.preventDefault()
-    this.setState({
-      toMessage: !this.state.toMessage
-    })
+  toggleMessageBox = postID => {
+    if (this.state.showMessageBox === postID) {
+      this.setState({
+        showMessageBox: null
+      })
+    } else {
+      this.setState({
+        showMessageBox: postID
+      })
+    }
   }
 
   render() {
-    const { posts, users, toMessage } = this.state
+    const { posts, users, showMessageBox } = this.state
 
     return (
       <div className="flex-container">
@@ -41,8 +46,8 @@ class Home extends Component {
           <h1> Since you last signed in:</h1>
           <PostsList
             posts={posts}
-            sendMessage={this.sendMessage}
-            toMessage={toMessage}
+            showMessageBox={showMessageBox}
+            toggleMessageBox={this.toggleMessageBox}
           />
         </div>
         <div id="users">

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css"
+import "./components/Button.css"
 
 import FrontPage from "./containers/FrontPage"
 import NewPostForm from "./components/NewPostForm"

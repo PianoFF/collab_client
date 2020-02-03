@@ -5,15 +5,3 @@
   background-color: rgb(231, 200, 192);
   border-radius: 3%;
 }
-
-#message {
-  border-radius: 3%;
-  background: wheat;
-  display: inline-block;
-  margin-bottom: 1%;
-  margin-left: 80%;
-}
-
-#message:hover {
-  background-color: thistle;
-}
