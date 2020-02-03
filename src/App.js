@@ -1,11 +1,12 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css"
 
 import FrontPage from "./containers/FrontPage"
 import NewPostForm from "./components/NewPostForm"
 import API from "./API/API"
 import Navbar from "./components/Navbar"
+import Home from "./containers/Home"
 
 // import { ThemeProvider } from "styled-components"
 
@@ -50,13 +51,10 @@ class App extends Component {
         )}
         {user && (
           <Router>
-            <div>
-              <Navbar />
-              <Route
-                path="home"
-                render={routerProps => <Home {...routerProps} user={user} />}
-              />
-            </div>
+            <Navbar />
+            <Route exact path={"/home"}>
+              <Home user={user} />
+            </Route>
           </Router>
         )}
 
