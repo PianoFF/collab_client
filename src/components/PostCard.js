@@ -1,5 +1,4 @@
 import React from "react"
-import "./PostCard.css"
 import NewMessage from "./NewMessage"
 
 const PostCard = ({ post, showMessageBox, toggleMessageBox, user }) => {

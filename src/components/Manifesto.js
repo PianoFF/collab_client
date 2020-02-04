@@ -2,7 +2,7 @@ import React from "react"
 import "./Manifesto.css"
 
 export const Manifesto = () => (
-  <p>
+  <p className="manifesto">
     <img src="collab-logo.png" className="collab-logo sepia"></img> <br />
     Manifesto: <br />
     <strong>

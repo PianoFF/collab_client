@@ -22,7 +22,7 @@ class Navbar extends Component {
         <NavLink
           to="/posts"
           activeStyle={{ background: "#BF6C5A", color: "black" }}>
-          Posts
+          Your Posts
         </NavLink>
         <NavLink
           to="/inbox"

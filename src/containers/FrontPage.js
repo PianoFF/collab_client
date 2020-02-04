@@ -9,10 +9,10 @@ class FrontPage extends Component {
 
     return (
       <div className="flex-container">
-        <div>
+        <div className="manifest">
           <Manifesto />
         </div>
-        <div>
+        <div className="singuplogin">
           <SignupLogin setUser={setUser} />
         </div>
       </div>

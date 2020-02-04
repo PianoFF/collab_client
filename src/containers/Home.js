@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import API from "../API/API"
 import UsersList from "../components/UsersList"
 import PostsList from "../components/PostsList"
-import "./Home.css"
+import "../components/Card.css"
 
 class Home extends Component {
   state = {
