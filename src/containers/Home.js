@@ -9,8 +9,6 @@ class Home extends Component {
     showMessageBox: null
   }
 
-  componentDidMount() {}
-
   toggleMessageBox = postID => {
     if (this.state.showMessageBox === postID) {
       this.setState({

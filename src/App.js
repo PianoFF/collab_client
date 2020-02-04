@@ -17,7 +17,8 @@ class App extends Component {
     user: null,
     validatedUser: false,
     posts: [],
-    users: []
+    users: [],
+    crnt_user_posts: []
   }
 
   setUser = user => {
@@ -25,6 +26,10 @@ class App extends Component {
       user: user,
       validatedUser: !!user
     })
+  }
+
+  forceUpdateHandler() {
+    this.forceUpdate()
   }
 
   componentDidMount() {
@@ -41,7 +46,26 @@ class App extends Component {
       })
 
     API.all_posts()
-      .then(postsData => this.setState({ posts: postsData }))
+      .then(postsData => {
+        this.setState({
+          posts: postsData,
+          crnt_user_posts: postsData.filter(
+            post => post.user.id === this.state.user.id
+          )
+        })
+      })
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+  }
+
+  handleNewPost = newPost => {
+    API.newpost(newPost)
+      .then(post =>
+        this.setState({
+          crnt_user_posts: [...this.state.crnt_user_posts, post]
+        })
+      )
       .catch(errorPromise => {
         errorPromise.then(data => alert(data.errors))
       })
@@ -65,15 +89,47 @@ class App extends Component {
         errorPromise.then(data => alert(data.errors))
       })
   }
+  handleDeletePost = postID => {
+    API.delete_post(postID)
+      .then(post =>
+        this.setState({
+          ...this.state,
+          crnt_user_posts: this.state.crnt_user_posts.filter(
+            p => p.id !== post.id
+          )
+        })
+      )
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+  }
+
+  componentDidUpdate(prevState) {
+    // Typical usage (don't forget to compare props):
+    if (this.state.crnt_user_posts !== prevState.crnt_user_posts) {
+      API.all_posts()
+        .then(postsData => {
+          this.setState({
+            posts: postsData,
+            crnt_user_posts: postsData.filter(
+              post => post.user.id === this.state.user.id
+            )
+          })
+        })
+        .catch(errorPromise => {
+          errorPromise.then(data => alert(data.errors))
+        })
+    }
+  }
 
   render() {
-    const { user, posts, users } = this.state
+    const { user, posts, users, crnt_user_posts } = this.state
 
     return (
       <div id="app">
         {!user && <FrontPage user={user} setUser={this.setUser} />}
         {user && (
-          <Router>
+          <Router onChange={this.forceUpdateHandler}>
             <Navbar LogOut={this.handleLogout} />
             <Route exact path={"/home"}>
               <Home
@@ -84,7 +140,12 @@ class App extends Component {
               />
             </Route>
             <Route exact path={"/posts"}>
-              <Posts user={user} posts={posts} />
+              <Posts
+                user={user}
+                crnt_user_posts={crnt_user_posts}
+                handleNewPost={this.handleNewPost}
+                handleDeletePost={this.handleDeletePost}
+              />
             </Route>
           </Router>
         )}
