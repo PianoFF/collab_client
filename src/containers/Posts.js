@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import API from "../API/API"
 import PostCard from "../components/PostCard"
+import NewPostForm from "../components/NewPostForm"
 
 class Posts extends Component {
   state = {
-    user_posts: []
+    user_posts: [],
+    toShowNewPostBox: false
   }
 
   componentDidMount() {
@@ -33,9 +35,28 @@ class Posts extends Component {
       })
   }
 
+  toggleNewPostBox = () => {
+    this.setState({
+      toShowNewPostBox: !this.state.toShowNewPostBox
+    })
+  }
+
+  handleNewPost = newPost => {
+    API.newpost(newPost)
+      .then(newPost =>
+        this.setState({
+          ...this.defaultState,
+          user_posts: [...this.state.user_posts, newPost]
+        })
+      )
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+  }
+
   render() {
     const { user } = this.props
-    const { user_posts } = this.state
+    const { user_posts, toShowNewPostBox } = this.state
 
     return (
       <div className="flex-container">
@@ -48,7 +69,15 @@ class Posts extends Component {
             />
           ))}
           <div className="right-btm-cnr">
-            <button>New Post</button>
+            <button onClick={this.toggleNewPostBox}>
+              {toShowNewPostBox ? "Cancel" : "New Post"}
+            </button>
+          </div>
+
+          <div className="new-msg">
+            {toShowNewPostBox && (
+              <NewPostForm handleNewPost={this.handleNewPost} />
+            )}
           </div>
         </div>
       </div>

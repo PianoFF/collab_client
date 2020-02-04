@@ -21,9 +21,7 @@ class NewPostForm extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault()
-    API.newpost(this.state).catch(errorPromise => {
-      errorPromise.then(data => alert(data.errors))
-    }) //.then(console.table)
+    this.props.handleNewPost(this.state)
     this.setState({
       ...this.defaultState
     })
