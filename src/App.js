@@ -84,7 +84,7 @@ class App extends Component {
               />
             </Route>
             <Route exact path={"/posts"}>
-              <Posts user={user} deletePost={this.deletePost} />
+              <Posts user={user} posts={posts} />
             </Route>
           </Router>
         )}

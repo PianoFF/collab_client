@@ -4,7 +4,7 @@ import PostCard from "../components/PostCard"
 
 class Posts extends Component {
   state = {
-    posts: []
+    user_posts: []
   }
 
   componentDidMount() {
@@ -13,22 +13,39 @@ class Posts extends Component {
         const current_user_posts = postsData.filter(
           post => post.user.id === this.props.user.id
         )
-        this.setState({ posts: current_user_posts })
+        this.setState({ user_posts: current_user_posts })
       })
       .catch(errorPromise => {
         errorPromise.then(data => alert(data.errors))
       })
   }
 
+  handleDeletePost = postID => {
+    API.delete_post(postID)
+      .then(post =>
+        this.setState({
+          ...this.state,
+          user_posts: this.state.user_posts.filter(p => p.id !== post.id)
+        })
+      )
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+  }
+
   render() {
-    const { posts } = this.state
     const { user } = this.props
+    const { user_posts } = this.state
 
     return (
       <div className="flex-container">
         <div>
-          {posts.map(post => (
-            <PostCard post={post} user={user} />
+          {user_posts.map(post => (
+            <PostCard
+              post={post}
+              user={user}
+              deletePost={this.handleDeletePost}
+            />
           ))}
           <div className="right-btm-cnr">
             <button>New Post</button>
