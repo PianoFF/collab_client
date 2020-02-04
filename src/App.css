@@ -41,7 +41,8 @@ html,
 body,
 #root,
 #app,
-#app > div {
+#app > div,
+#AppLoggedIn > div {
   height: 100%;
   background-image: linear-gradient(to bottom right, #047070, #89d1d9, white);
 }
