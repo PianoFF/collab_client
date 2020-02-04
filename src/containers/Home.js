@@ -54,7 +54,7 @@ class Home extends Component {
         </div>
         <div id="users">
           <h1> New Members:</h1>
-          <UsersList users={users} />
+          <UsersList users={users} current_user={user} />
         </div>
       </div>
     )
