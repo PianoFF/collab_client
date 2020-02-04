@@ -134,7 +134,9 @@ const new_message = message => {
 const delete_post = postID => {
   return fetch(`${DELETE_POST}/${postID}`, {
     method: "DELETE",
-    Authorization: localStorage.token
+    headers: {
+      Authorization: localStorage.token
+    }
   }).then(to_json)
 }
 
