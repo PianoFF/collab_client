@@ -50,6 +50,9 @@ class App extends Component {
             <Route exact path={"/home"}>
               <Home user={user} />
             </Route>
+            <Route exact path={"/posts"}>
+              <Posts user={user} />
+            </Route>
           </Router>
         )}
       </div>
