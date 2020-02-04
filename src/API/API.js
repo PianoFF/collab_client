@@ -14,6 +14,8 @@ const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
 
 const NEW_MESSAGE = `${COLLAB_ENDPOINT}/messages`
 
+const DELETE_POST = `${COLLAB_ENDPOINT}/posts`
+
 const to_json = resp => {
   if (resp.ok) {
     return resp.json()
@@ -129,6 +131,13 @@ const new_message = message => {
   }).then(to_json)
 }
 
+const delete_post = postID => {
+  return fetch(`${DELETE_POST}/${postID}`, {
+    method: "DELETE",
+    Authorization: localStorage.token
+  }).then(to_json)
+}
+
 const clearToken = () => localStorage.removeItem("token")
 
 export default {
@@ -138,6 +147,7 @@ export default {
   all_users,
   all_posts,
   newpost,
+  delete_post,
   new_message,
   clearToken,
   hasToken

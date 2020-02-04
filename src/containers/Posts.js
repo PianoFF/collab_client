@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import API from "../API/API"
+import PostCard from "../components/PostCard"
 
 class Posts extends Component {
   state = {
@@ -20,7 +21,21 @@ class Posts extends Component {
   }
 
   render() {
-    return <div>{this.state.posts.map(post => post.title)}</div>
+    const { posts } = this.state
+    const { user } = this.props
+
+    return (
+      <div className="flex-container">
+        <div>
+          {posts.map(post => (
+            <PostCard post={post} user={user} />
+          ))}
+          <div className="right-btm-cnr">
+            <button>New Post</button>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 

@@ -6,24 +6,10 @@ import "../components/Card.css"
 
 class Home extends Component {
   state = {
-    posts: [],
-    users: [],
     showMessageBox: null
   }
 
-  componentDidMount() {
-    API.all_users()
-      .then(userData => this.setState({ users: userData }))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
-
-    API.all_posts()
-      .then(postsData => this.setState({ posts: postsData }))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
-  }
+  componentDidMount() {}
 
   toggleMessageBox = postID => {
     if (this.state.showMessageBox === postID) {
@@ -38,8 +24,8 @@ class Home extends Component {
   }
 
   render() {
-    const { posts, users, showMessageBox } = this.state
-    const { user } = this.props
+    const { showMessageBox } = this.state
+    const { user, deletePost, posts, users } = this.props
 
     return (
       <div className="flex-container">
@@ -50,6 +36,7 @@ class Home extends Component {
             showMessageBox={showMessageBox}
             toggleMessageBox={this.toggleMessageBox}
             user={user}
+            deletePost={deletePost}
           />
         </div>
         <div id="users">

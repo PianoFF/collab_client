@@ -15,7 +15,9 @@ import Posts from "./containers/Posts"
 class App extends Component {
   state = {
     user: null,
-    validatedUser: false
+    validatedUser: false,
+    posts: [],
+    users: []
   }
 
   setUser = user => {
@@ -31,6 +33,18 @@ class App extends Component {
         this.setUser(user)
       })
     }
+
+    API.all_users()
+      .then(userData => this.setState({ users: userData }))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+
+    API.all_posts()
+      .then(postsData => this.setState({ posts: postsData }))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   handleLogout = e => {
@@ -39,8 +53,21 @@ class App extends Component {
     API.clearToken()
   }
 
+  deletePost = postID => {
+    API.delete_post(postID)
+      .then(post =>
+        this.setState({
+          ...this.state,
+          posts: this.state.posts.filter(p => p.id !== post.id)
+        })
+      )
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
+  }
+
   render() {
-    const { user } = this.state
+    const { user, posts, users } = this.state
 
     return (
       <div id="app">
@@ -49,10 +76,15 @@ class App extends Component {
           <Router>
             <Navbar LogOut={this.handleLogout} />
             <Route exact path={"/home"}>
-              <Home user={user} />
+              <Home
+                user={user}
+                deletePost={this.deletePost}
+                users={users}
+                posts={posts}
+              />
             </Route>
             <Route exact path={"/posts"}>
-              <Posts user={user} />
+              <Posts user={user} deletePost={this.deletePost} />
             </Route>
           </Router>
         )}

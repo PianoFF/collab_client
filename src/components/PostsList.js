@@ -1,7 +1,13 @@
 import React from "react"
 import PostCard from "./PostCard"
 
-const PostsList = ({ posts, showMessageBox, toggleMessageBox, user }) => {
+const PostsList = ({
+  posts,
+  showMessageBox,
+  toggleMessageBox,
+  user,
+  deletePost
+}) => {
   return posts.map(post => (
     <PostCard
       key={post.id}
@@ -9,6 +15,7 @@ const PostsList = ({ posts, showMessageBox, toggleMessageBox, user }) => {
       toggleMessageBox={toggleMessageBox}
       showMessageBox={showMessageBox}
       user={user}
+      deletePost={deletePost}
     />
   ))
 }

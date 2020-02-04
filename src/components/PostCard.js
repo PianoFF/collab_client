@@ -1,7 +1,19 @@
 import React from "react"
 import NewMessage from "./NewMessage"
 
-const PostCard = ({ post, showMessageBox, toggleMessageBox, user }) => {
+const PostCard = ({
+  post,
+  showMessageBox,
+  toggleMessageBox,
+  user,
+  deletePost
+}) => {
+  const handleDeletePost = e => {
+    e.preventDefault()
+    alert("You are about to delete this post")
+    deletePost(post.id)
+  }
+
   return (
     <div className="card">
       <div className="title">
@@ -29,6 +41,9 @@ const PostCard = ({ post, showMessageBox, toggleMessageBox, user }) => {
             <button id="message" onClick={() => toggleMessageBox(post.id)}>
               {showMessageBox === post.id ? "Cancel" : "Message"}
             </button>
+          )}
+          {post.user.id === user.id && (
+            <button onClick={handleDeletePost}> Delete</button>
           )}
         </div>
         <div id="message-box">
