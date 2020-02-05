@@ -16,6 +16,10 @@ const NEW_MESSAGE = `${COLLAB_ENDPOINT}/messages`
 
 const DELETE_POST = `${COLLAB_ENDPOINT}/posts`
 
+const VOICE_TYPE = `${COLLAB_ENDPOINT}/vocals`
+
+const INSTRUMENT = `${COLLAB_ENDPOINT}/instrumentals`
+
 const to_json = resp => {
   if (resp.ok) {
     return resp.json()
@@ -151,6 +155,34 @@ const delete_post = postID => {
   }).then(to_json)
 }
 
+const voice_type = voice => {
+  return fetch(VOICE_TYPE, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      voice
+    })
+  }).then(to_json)
+}
+
+const instrument = instrument => {
+  return fetch(INSTRUMENT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      instrument
+    })
+  }).then(to_json)
+}
+
 const clearToken = () => localStorage.removeItem("token")
 
 export default {
@@ -164,5 +196,7 @@ export default {
   delete_post,
   new_message,
   clearToken,
-  hasToken
+  hasToken,
+  instrument,
+  voice_type
 }

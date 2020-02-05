@@ -19,9 +19,7 @@ class AppLoggedIn extends Component {
   componentDidMount() {
     API.all_users()
       .then(userData => this.setState({ users: userData }))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
+      .catch(errorPromise => alert(errorPromise.errors))
 
     API.all_posts()
       .then(postsData => {
@@ -32,10 +30,7 @@ class AppLoggedIn extends Component {
           )
         })
       })
-      .catch(errorPromise => {
-        // debugger
-        errorPromise.then(data => alert(data.errors))
-      })
+      .catch(errorPromise => alert(errorPromise.errors))
   }
 
   handleNewPost = newPost => {
@@ -46,9 +41,7 @@ class AppLoggedIn extends Component {
           posts: [...this.state.posts, post]
         })
       )
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
+      .catch(errorPromise => alert(errorPromise.errors))
   }
 
   handleLogout = e => {
@@ -65,9 +58,7 @@ class AppLoggedIn extends Component {
           posts: this.state.posts.filter(p => p.id !== post.id)
         })
       )
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
+      .catch(errorPromise => alert(errorPromise.errors))
   }
   handleDeletePost = postID => {
     API.delete_post(postID)
@@ -79,9 +70,7 @@ class AppLoggedIn extends Component {
           )
         })
       )
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
+      .catch(errorPromise => alert(errorPromise.errors))
   }
 
   render() {
