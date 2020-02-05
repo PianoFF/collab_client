@@ -11,26 +11,30 @@ class Navbar extends Component {
         <img src="collab-logo.png" className="collab-logo"></img>
         <NavLink
           to="/home"
-          activeStyle={{ background: "#BF6C5A", color: "black" }}>
+          // activeStyle={{ background: "#BF6C5A", color: "black" }}
+        >
           Home
         </NavLink>
         <NavLink
           to="/profile"
-          activeStyle={{ background: "#BF6C5A", color: "black" }}>
+          // activeStyle={{ background: "#BF6C5A", color: "black" }}
+        >
           Profile
         </NavLink>
         <NavLink
           to="/posts"
-          activeStyle={{ background: "#BF6C5A", color: "black" }}>
+          // activeStyle={{ background: "#BF6C5A", color: "black" }}
+        >
           Your Posts
         </NavLink>
         <NavLink
           to="/inbox"
-          activeStyle={{ background: "#BF6C5A", color: "black" }}>
+          // activeStyle={{ background: "#BF6C5A", color: "black" }}
+        >
           Inbox
         </NavLink>
         <Link
-          activeStyle={{ background: "#BF6C5A", color: "black" }}
+          // activeStyle={{ background: "#BF6C5A", color: "black" }}
           onClick={LogOut}>
           Log Out
         </Link>

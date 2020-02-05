@@ -31,24 +31,6 @@ class App extends Component {
     }
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   // Typical usage (don't forget to compare props):
-  //   if (this.state.crnt_user_posts !== prevState.crnt_user_posts) {
-  //     API.all_posts()
-  //       .then(postsData => {
-  //         debugger
-  //         this.setState({
-  //           crnt_user_posts: postsData.filter(
-  //             post => post.user.id === this.state.user.id
-  //           )
-  //         })
-  //       })
-  //       .catch(errorPromise => {
-  //         errorPromise.then(data => alert(data.errors))
-  //       })
-  //   }
-  // }
-
   render() {
     const { user } = this.state
 

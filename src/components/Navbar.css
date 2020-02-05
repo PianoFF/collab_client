@@ -1,14 +1,22 @@
 .nav > a {
-  width: "100px";
-  padding: "12px";
   height: auto;
-  background-color: #f2b6a0;
-  color: #0a7e7e;
+  border-bottom-color: #f2b6a0;
+  border-bottom: 2px solid;
+  font-size: 1.5em;
+  font-family: "Kalam", cursive;
   text-decoration: none;
   border-radius: 15%;
+  -webkit-text-stroke: 1px #290d06;
+  color: rgb(240, 222, 222);
+  /* text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
-header,
+a.active {
+  text-decoration: overline;
+  text-decoration-color: rgb(13, 94, 76);
+}
+
 .nav {
   display: flex;
   flex-direction: row;
