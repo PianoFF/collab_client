@@ -11,7 +11,7 @@ class Profile extends Component {
     userInstrumental: null
   }
 
-  componentDidMount() {
+  userFetch = () => {
     API.one_user(this.props.match.params.userID).then(user => {
       console.log(user)
       const userProfile = Object.fromEntries(
@@ -29,15 +29,17 @@ class Profile extends Component {
       const userSpecialty = Object.fromEntries(
         Object.entries(user).filter(([key]) => ["specialty"].includes(key))
       )
-      if (userSpecialty.specialty.voice_type) {
-        this.setState({
-          userVocal: userSpecialty.specialty.voice_type
-        })
-      } else {
-        const instrument = userSpecialty.specialty.instrument
-        this.setState({
-          userInstrumental: instrument
-        })
+      if (userSpecialty.specialty) {
+        if (userSpecialty.specialty.voice_type) {
+          this.setState({
+            userVocal: userSpecialty.specialty.voice_type
+          })
+        } else {
+          const instrument = userSpecialty.specialty.instrument
+          this.setState({
+            userInstrumental: instrument
+          })
+        }
       }
       // debugger
       this.setState({
@@ -45,6 +47,17 @@ class Profile extends Component {
         userLocation: userLocation
       })
     })
+  }
+
+  componentDidUpdate(newProps) {
+    // debugger
+    if (this.props.location.pathname !== newProps.location.pathname) {
+      this.userFetch()
+    }
+  }
+
+  componentDidMount() {
+    this.userFetch()
   }
 
   render() {

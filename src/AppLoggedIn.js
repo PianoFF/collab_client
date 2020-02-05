@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
 import "./components/Button.css"
 import "./containers/FlexContainer.css"
 
@@ -81,6 +81,7 @@ class AppLoggedIn extends Component {
       <div id="AppLoggedIn">
         <Router>
           <Navbar LogOut={this.handleLogout} user={user} />
+          <Route exact path="/" render={() => <Redirect to="/home" />} />
           <Route exact path={"/home"}>
             <Home
               user={user}
@@ -99,7 +100,9 @@ class AppLoggedIn extends Component {
           </Route>
           <Route
             path="/profile/:userID"
-            render={routerProps => <Profile {...routerProps} current_user={user} />}></Route>
+            render={routerProps => (
+              <Profile {...routerProps} current_user={user} />
+            )}></Route>
         </Router>
       </div>
     )
