@@ -13,12 +13,18 @@ class Profile extends Component {
 
   userFetch = () => {
     API.one_user(this.props.match.params.userID).then(user => {
-      console.log(user)
+      // console.log(user)
       const userProfile = Object.fromEntries(
         Object.entries(user).filter(([key]) =>
-          ["id", "first_name", "last_name", "email", "field", "token"].includes(
-            key
-          )
+          [
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "field",
+            "token",
+            "bio_content"
+          ].includes(key)
         )
       )
 
@@ -29,6 +35,7 @@ class Profile extends Component {
       const userSpecialty = Object.fromEntries(
         Object.entries(user).filter(([key]) => ["specialty"].includes(key))
       )
+
       if (userSpecialty.specialty) {
         if (userSpecialty.specialty.voice_type) {
           this.setState({
@@ -68,7 +75,7 @@ class Profile extends Component {
       userVocal,
       userLocation
     } = this.state
-    const { current_user } = this.props
+    const { current_user, handleUpdateUser } = this.props
 
     return (
       <div className="profile-container">
@@ -81,6 +88,7 @@ class Profile extends Component {
                 userVocal={userVocal}
                 current_user={current_user}
                 userProfile={userProfile}
+                handleUpdateUser={handleUpdateUser}
               />
             </div>
 

@@ -31,13 +31,30 @@ class App extends Component {
     }
   }
 
+  handleUpdateUser = infoForPatch => {
+    API.user_update(this.state.user.id, infoForPatch).then(newData => {
+      console.log(newData)
+      this.setState({
+        user: {
+          ...this.state.user,
+          ...newData
+        }
+      })
+    })
+  }
   render() {
     const { user } = this.state
 
     return (
       <div id="app">
         {!user && <FrontPage user={user} setUser={this.setUser} />}
-        {user && <AppLoggedIn user={user} setUser={this.setUser} />}
+        {user && (
+          <AppLoggedIn
+            user={user}
+            setUser={this.setUser}
+            handleUpdateUser={this.handleUpdateUser}
+          />
+        )}
       </div>
     )
   }

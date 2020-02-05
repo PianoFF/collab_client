@@ -75,7 +75,7 @@ class AppLoggedIn extends Component {
 
   render() {
     const { posts, users, crnt_user_posts } = this.state
-    const { user } = this.props
+    const { user, handleUpdateUser } = this.props
 
     return (
       <div id="AppLoggedIn">
@@ -101,7 +101,11 @@ class AppLoggedIn extends Component {
           <Route
             path="/profile/:userID"
             render={routerProps => (
-              <Profile {...routerProps} current_user={user} />
+              <Profile
+                {...routerProps}
+                current_user={user}
+                handleUpdateUser={handleUpdateUser}
+              />
             )}></Route>
         </Router>
       </div>

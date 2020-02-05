@@ -146,6 +146,18 @@ const new_message = message => {
   }).then(to_json)
 }
 
+const user_update = (userID, newInfo) => {
+  return fetch(`${ONE_USER}/${userID}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify(newInfo)
+  }).then(to_json)
+}
+
 const delete_post = postID => {
   return fetch(`${DELETE_POST}/${postID}`, {
     method: "DELETE",
@@ -192,6 +204,7 @@ export default {
   all_users,
   one_user,
   all_posts,
+  user_update,
   newpost,
   delete_post,
   new_message,
