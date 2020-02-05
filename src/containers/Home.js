@@ -28,7 +28,9 @@ class Home extends Component {
     return (
       <div className="flex-container">
         <div id="posts">
-          <h1> Since you last signed in:</h1>
+          <h1>
+            What's going on at <i> Collab </i>:
+          </h1>
           <PostsList
             posts={posts}
             showMessageBox={showMessageBox}
