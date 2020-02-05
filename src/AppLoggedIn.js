@@ -91,7 +91,7 @@ class AppLoggedIn extends Component {
     return (
       <div id="AppLoggedIn">
         <Router>
-          <Navbar LogOut={this.handleLogout} />
+          <Navbar LogOut={this.handleLogout} user={user} />
           <Route exact path={"/home"}>
             <Home
               user={user}
