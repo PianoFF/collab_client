@@ -1,31 +1,40 @@
 import React, { Component } from "react"
 import "./Profile.css"
+import API from "../API/API"
 
 class Profile extends Component {
   state = {
     userProfile: null
   }
 
-  // componentDidMount{
-  //     fetch()
-  //   }
+  componentDidMount() {
+    API.one_user(this.props.match.params.userID).then(user => {
+      console.log(user)
+      this.setState({ userProfile: user })
+    })
+  }
 
   render() {
-    debugger
+    // debugger
+    const { userProfile } = this.state
 
     return (
       <div className="profile-container">
-        <div className="info-box-left">
-          <h1> this is personal info sec</h1>
-        </div>
+        {userProfile && (
+          <>
+            <div className="info-box-left">
+              <h1> {userProfile.id}</h1>
+            </div>
 
-        <div className="info-box-right">
-          <h1> this is personal info sec right</h1>
-        </div>
+            <div className="info-box-right">
+              <h1> field: {userProfile.field}</h1>
+            </div>
 
-        <div className="info-box-btm">
-          <h1> this is personal info sec btm</h1>
-        </div>
+            <div className="info-box-btm">
+              <h1> bio: {userProfile.bio_content}</h1>
+            </div>
+          </>
+        )}
       </div>
     )
   }

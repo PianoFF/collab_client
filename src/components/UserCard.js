@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./UserCard.css"
 
-const UserCard = ({ user, current_user }) => {
+const UserCard = ({ user }) => {
   const full_name = user.first_name + " " + user.last_name
 
   return (

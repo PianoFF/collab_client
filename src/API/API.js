@@ -7,10 +7,10 @@ const SIGN_UP = `${COLLAB_ENDPOINT}/signup`
 const VALIDATE = `${COLLAB_ENDPOINT}/validate`
 
 const NEWPOST = `${COLLAB_ENDPOINT}/posts`
+const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
 
 const ALL_USERS = `${COLLAB_ENDPOINT}/users`
-
-const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
+const ONE_USER = `${COLLAB_ENDPOINT}/users`
 
 const NEW_MESSAGE = `${COLLAB_ENDPOINT}/messages`
 
@@ -106,6 +106,17 @@ const all_users = () => {
   }).then(to_json)
 }
 
+const one_user = userID => {
+  return fetch(`${ONE_USER}/${userID}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    }
+  }).then(to_json)
+}
+
 const all_posts = () => {
   return fetch(ALL_POSTS, {
     method: "GET",
@@ -147,6 +158,7 @@ export default {
   signup,
   validate,
   all_users,
+  one_user,
   all_posts,
   newpost,
   delete_post,

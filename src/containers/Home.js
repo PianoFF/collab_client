@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import API from "../API/API"
+
 import UsersList from "../components/UsersList"
 import PostsList from "../components/PostsList"
 import "../components/Card.css"
