@@ -99,7 +99,7 @@ class AppLoggedIn extends Component {
           </Route>
           <Route
             path="/profile/:userID"
-            render={routerProps => <Profile {...routerProps} />}></Route>
+            render={routerProps => <Profile {...routerProps} current_user={user} />}></Route>
         </Router>
       </div>
     )

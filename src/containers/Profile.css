@@ -23,6 +23,9 @@
   float: left;
   margin-left: 5em;
 }
+.info-box-left>form{
+  margin-top: 5em;
+}
 
 .info-box-right {
   float: right;
