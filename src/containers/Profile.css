@@ -1,25 +1,41 @@
 .profile-container {
-  display: flex;
-  height: 200px;
-  background-color: #f1f1f1;
+  justify-content: space-around;
 }
 
 .profile-container > .info-box-left,
 .info-box-right {
-  background-color: DodgerBlue;
+  display: inline-block;
   color: white;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+  width: 35%;
+  height: 50%;
+  text-align: left;
+  /* line-height: 75px; */
+  margin-bottom: 3em;
+  margin-top: 3em;
+  vertical-align: top;
+  border-style: groove;
+  border-color: slategrey;
 }
-.profile-container > .info-box-btm {
-  background-color: DodgerBlue;
-  color: white;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
+
+.info-box-left {
+  float: left;
+  margin-left: 5em;
+}
+
+.info-box-right {
+  float: right;
+  margin-right: 5em;
+}
+
+.info-box-btm {
+  border-style: groove;
+  border-color: slategrey;
+  display: inline-block;
+  margin-left: 30%;
+  margin-top: none;
+  width: 40%;
+  height: 25%;
+  text-align: left;
   line-height: 75px;
   font-size: 30px;
   align-self: center;
