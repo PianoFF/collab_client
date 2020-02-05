@@ -2,12 +2,12 @@
   height: auto;
   border-bottom-color: #f2b6a0;
   border-bottom: 2px solid;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-family: "Kalam", cursive;
   text-decoration: none;
   border-radius: 15%;
-  -webkit-text-stroke: 1px #290d06;
-  color: rgb(240, 222, 222);
+  -webkit-text-stroke: 1px #79c2a6;
+  color: rgb(15, 13, 13);
   /* text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000; */
 }

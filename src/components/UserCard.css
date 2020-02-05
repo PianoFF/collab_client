@@ -1,0 +1,20 @@
+.a-link {
+  height: auto;
+  border-bottom-color: #f2b6a0;
+  border-bottom: 2px solid;
+  font-size: 0.5em;
+  font-family: "Kalam", cursive;
+  text-decoration: none;
+  border-radius: 15%;
+  -webkit-text-stroke: 1px #1b352b;
+  color: rgb(206, 180, 180);
+  margin-left: 80%;
+}
+
+a.active {
+  text-decoration: overline;
+  text-decoration-color: rgb(13, 94, 76);
+}
+a:hover {
+  text-decoration: overline;
+}

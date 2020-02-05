@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import "./UserCard.css"
 
 const UserCard = ({ user, current_user }) => {
   const full_name = user.first_name + " " + user.last_name
@@ -21,13 +23,8 @@ const UserCard = ({ user, current_user }) => {
           <p> {user.bio_content} </p>
         </div>
 
-        <div className="right-btm-cnr">
-          {/* {post.user.id !== user.id && ( */}
-          <button>
-            View Profile
-            {/* {showMessageBox === post.id ? "Cancel" : "Message"} */}
-          </button>
-          {/* )} */}
+        <div className="a-link">
+          <Link to={`/profile/${user.id}`}>View Profile</Link>
         </div>
       </div>
     </div>

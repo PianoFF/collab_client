@@ -7,6 +7,7 @@ import API from "./API/API"
 import Navbar from "./components/Navbar"
 import Home from "./containers/Home"
 import Posts from "./containers/Posts"
+import Profile from "./containers/Profile"
 
 class AppLoggedIn extends Component {
   state = {
@@ -107,6 +108,9 @@ class AppLoggedIn extends Component {
               handleDeletePost={this.handleDeletePost}
             />
           </Route>
+          <Route
+            path="/profile/:userID"
+            render={routerProps => <Profile {...routerProps} />}></Route>
         </Router>
       </div>
     )

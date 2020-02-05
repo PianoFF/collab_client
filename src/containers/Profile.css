@@ -1,0 +1,26 @@
+.profile-container {
+  display: flex;
+  height: 200px;
+  background-color: #f1f1f1;
+}
+
+.profile-container > .info-box-left,
+.info-box-right {
+  background-color: DodgerBlue;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+.profile-container > .info-box-btm {
+  background-color: DodgerBlue;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  align-self: center;
+}
