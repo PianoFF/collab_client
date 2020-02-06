@@ -20,6 +20,8 @@ const VOICE_TYPE = `${COLLAB_ENDPOINT}/vocals`
 
 const INSTRUMENT = `${COLLAB_ENDPOINT}/instrumentals`
 
+const LOCATION = `${COLLAB_ENDPOINT}/locations`
+
 const to_json = resp => {
   if (resp.ok) {
     return resp.json()
@@ -195,6 +197,20 @@ const instrument = instrument => {
   }).then(to_json)
 }
 
+const new_location = location => {
+  return fetch(LOCATION, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      location
+    })
+  }).then(to_json)
+}
+
 const clearToken = () => localStorage.removeItem("token")
 
 export default {
@@ -211,5 +227,6 @@ export default {
   clearToken,
   hasToken,
   instrument,
-  voice_type
+  voice_type,
+  new_location
 }

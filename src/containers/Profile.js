@@ -97,6 +97,7 @@ class Profile extends Component {
                 location={userLocation}
                 user={userProfile}
                 current_user={current_user}
+                handleUpdateUser={handleUpdateUser}
               />
             </div>
 

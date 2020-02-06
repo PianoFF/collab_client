@@ -18,6 +18,17 @@ class UserLocationInfoForm extends Component {
     })
   }
 
+  updateUserLocation = e => {
+    e.preventDefault()
+
+    const infoForPatch = {
+      user: {
+        location: [this.state]
+      }
+    }
+    this.props.handleUpdateUser(infoForPatch)
+  }
+
   render() {
     const { street, city_town, state_province, country, post_code } = this.state
     const { user, current_user } = this.props
@@ -26,8 +37,7 @@ class UserLocationInfoForm extends Component {
         <form
           className="user-location-form"
           onChange={this.handleUserLocationFormChange}
-          // onSubmit={this.updateUserInfo}
-        >
+          onSubmit={this.updateUserLocation}>
           <div className="action_page.php">
             <div className="row">
               <div className="col-25">
@@ -66,6 +76,7 @@ class UserLocationInfoForm extends Component {
                   placeholder="State / Province"
                   name="state_province"
                   value={state_province}>
+                  <option> Select A State</option>
                   <option> Not on the list</option>
                   {USStates.map(state => (
                     <option>{state}</option>
@@ -75,7 +86,6 @@ class UserLocationInfoForm extends Component {
                   <div className="col-75">
                     <input
                       type="text"
-                      value=""
                       name="state_province"
                       placeholder="Type your provice here"
                     />
