@@ -88,13 +88,16 @@ class Profile extends Component {
                 userInstrumental={userInstrumental}
                 userVocal={userVocal}
                 current_user={current_user}
-                userProfile={userProfile}
                 handleUpdateUser={handleUpdateUser}
               />
             </div>
 
             <div className="info-box-right">
-              <UserLocationInfoForm location={userLocation} />
+              <UserLocationInfoForm
+                location={userLocation}
+                user={userProfile}
+                current_user={current_user}
+              />
             </div>
 
             <div className="info-box-btm">

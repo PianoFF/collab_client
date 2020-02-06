@@ -40,7 +40,7 @@ class UserInfoEditForm extends Component {
   }
 
   render() {
-    const { user, userVocal, current_user, userProfile } = this.props
+    const { user, userVocal, current_user } = this.props
 
     const { first_name, last_name, email, bio_content, specialty } = this.state
 
@@ -120,7 +120,7 @@ class UserInfoEditForm extends Component {
               </div>
             </div>
 
-            {current_user.id === userProfile.id && (
+            {current_user.id === user.id && (
               <button type="submit"> Update </button>
             )}
           </div>
