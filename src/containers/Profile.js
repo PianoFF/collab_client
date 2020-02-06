@@ -29,10 +29,6 @@ class Profile extends Component {
         )
       )
 
-      const userLocation = Object.fromEntries(
-        Object.entries(user).filter(([key]) => ["location"].includes(key))
-      )
-
       const userSpecialty = Object.fromEntries(
         Object.entries(user).filter(([key]) => ["specialty"].includes(key))
       )
@@ -49,10 +45,10 @@ class Profile extends Component {
           })
         }
       }
-      // debugger
+
       this.setState({
         userProfile: userProfile,
-        userLocation: userLocation
+        userLocation: user.location
       })
     })
   }

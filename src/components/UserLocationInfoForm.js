@@ -7,6 +7,7 @@ class UserLocationInfoForm extends Component {
     street: this.props.location.street,
     city_town: this.props.location.city_town,
     state_province: this.props.location.state_province,
+    user_state_provice_input: this.props.location.state_province,
     country: this.props.location.country,
     post_code: this.props.location.post_code
   }
@@ -20,10 +21,21 @@ class UserLocationInfoForm extends Component {
 
   updateUserLocation = e => {
     e.preventDefault()
+    const newLocationInfo = Object.fromEntries(
+      Object.entries(this.state).filter(([key]) =>
+        ["street", "city_town", "country", "post_code"].includes(key)
+      )
+    )
 
     const infoForPatch = {
       user: {
-        location: [this.state]
+        location: {
+          ...newLocationInfo,
+          state_province:
+            this.state.state_province === "Not on the list"
+              ? this.state.user_edit_state_province
+              : this.state.state_province
+        }
       }
     }
     this.props.handleUpdateUser(infoForPatch)
@@ -62,7 +74,7 @@ class UserLocationInfoForm extends Component {
                   type="text"
                   placeholder="City / Town"
                   name="city_town"
-                  value={city_town}
+                  value={`${city_town}, ${this.props.location.state_province}`}
                 />
               </div>
             </div>
@@ -86,7 +98,7 @@ class UserLocationInfoForm extends Component {
                   <div className="col-75">
                     <input
                       type="text"
-                      name="state_province"
+                      name="user_state_provice_input"
                       placeholder="Type your provice here"
                     />
                   </div>

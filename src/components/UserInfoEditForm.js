@@ -25,7 +25,6 @@ class UserInfoEditForm extends Component {
         ["first_name", "last_name", "email", "bio_content"].includes(key)
       )
     )
-
     const infoForPatch = {
       user: {
         ...newUserInfo,
@@ -35,6 +34,7 @@ class UserInfoEditForm extends Component {
         }
       }
     }
+
     this.props.handleUpdateUser(infoForPatch)
   }
 
