@@ -1,4 +1,4 @@
-button {
+button[type="submit"] {
   border-radius: 30%;
   background: wheat;
   margin-bottom: 1%;

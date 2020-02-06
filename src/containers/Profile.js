@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./Profile.css"
 import API from "../API/API"
 import UserInfoEditForm from "../components/UserInfoEditForm"
+import UserLocationInfoForm from "../components/UserLocationInfoForm"
 
 class Profile extends Component {
   state = {
@@ -93,18 +94,7 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-right">
-              {userInstrumental ? (
-                <h1>
-                  {" "}
-                  {userProfile.first_name}'s voice/instrument is:{" "}
-                  {userInstrumental}
-                </h1>
-              ) : (
-                <h1>
-                  {" "}
-                  {userProfile.first_name}'s voice/instrument is: {userVocal}
-                </h1>
-              )}
+              <UserLocationInfoForm location={userLocation} />
             </div>
 
             <div className="info-box-btm">
