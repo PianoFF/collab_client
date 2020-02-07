@@ -1,0 +1,68 @@
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Card from "@material-ui/core/Card"
+import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+    marginLeft: "5%",
+    width: "90%",
+    borderLeft: "4px solid #89d1d9",
+    backgroundColor: "rgb(231, 200, 192)",
+    borderRadius: "3%",
+    marginBottom: "1em",
+    marginTop: "1em"
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)"
+  },
+  title: {
+    fontSize: 14
+  },
+  pos: {
+    marginBottom: 12
+  },
+  movebutton: {
+    float: "right"
+  }
+})
+
+const MessageCard = ({ msg }) => {
+  const classes = useStyles()
+  return (
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color="textSecondary"
+          gutterBottom>
+          From: {msg.sender.first_name + " " + msg.sender.last_name}
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {msg.title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          Content:
+          <br />
+          {msg.content}
+        </Typography>
+      </CardContent>
+      <CardActions className={classes.movebutton}>
+        <Button size="small" variant="outlined">
+          Reply
+        </Button>
+        <Button size="small" variant="outlined">
+          Delete
+        </Button>
+      </CardActions>
+    </Card>
+  )
+}
+
+export default MessageCard

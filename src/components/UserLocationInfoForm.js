@@ -9,7 +9,7 @@ class UserLocationInfoForm extends Component {
         street: this.props.location.street,
         city_town: this.props.location.city_town,
         state_province: this.props.location.state_province,
-        user_state_provice_input: this.props.location.state_province,
+        user_state_province_input: this.props.location.state_province,
         country: this.props.location.country,
         post_code: this.props.location.post_code
       }
@@ -18,7 +18,7 @@ class UserLocationInfoForm extends Component {
         street: "",
         city_town: "",
         state_province: "",
-        user_state_provice_input: "",
+        user_state_province_input: "",
         country: "",
         post_code: ""
       }
@@ -54,7 +54,7 @@ class UserLocationInfoForm extends Component {
           ...newLocationInfo,
           state_province:
             this.state.state_province === "Not on the list"
-              ? this.state.user_state_provice_input
+              ? this.state.user_state_province_input
               : this.state.state_province
         }
       }
@@ -133,7 +133,7 @@ class UserLocationInfoForm extends Component {
                       <input
                         disabled={readOnly}
                         type="text"
-                        name="user_state_provice_input"
+                        name="user_state_province_input"
                         placeholder="Type your provice here"
                       />
                     </div>

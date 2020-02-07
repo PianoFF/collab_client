@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import API from "../API/API"
 import PostCard from "../components/PostCard"
 import NewPostForm from "../components/NewPostForm"
 

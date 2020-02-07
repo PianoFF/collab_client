@@ -1,4 +1,5 @@
-.flex-container {
+.flex-container,
+.inbox-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -9,7 +10,8 @@
   position: relative;
 }
 
-.flex-container > div {
+.flex-container > div,
+.inbox-container > div {
   background-color: #bf6c5a;
   width: 45%;
   border-radius: 3%;
@@ -20,8 +22,3 @@
   height: 90%;
   overflow: scroll;
 }
-/* 
-div#posts {
-  height: 90%;
-  overflow: scroll;
-} */

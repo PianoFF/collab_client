@@ -96,7 +96,7 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-btm">
-              <h1> bio: {userProfile.bio_content}</h1>
+              <h3> PDF files: CV, resume, repertoire_list come here</h3>
             </div>
           </>
         )}

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar"
 import Home from "./containers/Home"
 import Posts from "./containers/Posts"
 import Profile from "./containers/Profile"
+import Inbox from "./containers/Inbox"
 
 class AppLoggedIn extends Component {
   state = {
@@ -107,6 +108,9 @@ class AppLoggedIn extends Component {
                 handleUpdateUser={handleUpdateUser}
               />
             )}></Route>
+          <Route exact path={"/inbox"}>
+            <Inbox user={user} />
+          </Route>
         </Router>
       </div>
     )
