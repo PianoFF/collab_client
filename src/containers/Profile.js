@@ -54,7 +54,6 @@ class Profile extends Component {
   }
 
   componentDidUpdate(newProps) {
-    // debugger
     if (this.props.location.pathname !== newProps.location.pathname) {
       this.userFetch()
     }
@@ -65,7 +64,6 @@ class Profile extends Component {
   }
 
   render() {
-    // debugger
     const {
       userProfile,
       userInstrumental,

@@ -18,6 +18,21 @@ class UserInfoEditForm extends Component {
     })
   }
 
+  componentDidUpdate = prevProps => {
+    if (this.props.user !== prevProps.user) {
+      console.log(this.props)
+      this.setState({
+        first_name: this.props.user.first_name,
+        last_name: this.props.user.last_name,
+        email: this.props.user.email,
+        bio_content: this.props.user.bio_content,
+        specialty: this.props.userVocal
+          ? this.props.userVocal
+          : this.props.userInstrumental
+      })
+    }
+  }
+
   updateUserInfo = e => {
     e.preventDefault()
     const newUserInfo = Object.fromEntries(

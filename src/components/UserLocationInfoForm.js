@@ -3,15 +3,36 @@ import USStates from "./USStates"
 import CountryList from "./CountryList"
 
 class UserLocationInfoForm extends Component {
-  state = {
-    street: this.props.location.street,
-    city_town: this.props.location.city_town,
-    state_province: this.props.location.state_province,
-    user_state_provice_input: this.props.location.state_province,
-    country: this.props.location.country,
-    post_code: this.props.location.post_code
+  conditionalState = () => {
+    if (this.props.location) {
+      return {
+        street: this.props.location.street,
+        city_town: this.props.location.city_town,
+        state_province: this.props.location.state_province,
+        user_state_provice_input: this.props.location.state_province,
+        country: this.props.location.country,
+        post_code: this.props.location.post_code
+      }
+    } else {
+      return {
+        street: "",
+        city_town: "",
+        state_province: "",
+        user_state_provice_input: "",
+        country: "",
+        post_code: ""
+      }
+    }
   }
 
+  state = this.conditionalState()
+
+  componentDidUpdate = prevProps => {
+    if (this.props.user !== prevProps.user) {
+      console.log(this.props)
+      this.setState(this.conditionalState())
+    }
+  }
   handleUserLocationFormChange = e => {
     this.setState({
       ...this.state,
@@ -33,11 +54,13 @@ class UserLocationInfoForm extends Component {
           ...newLocationInfo,
           state_province:
             this.state.state_province === "Not on the list"
-              ? this.state.user_edit_state_province
+              ? this.state.user_state_provice_input
               : this.state.state_province
         }
       }
     }
+
+    // console.log(infoForPatch)
     this.props.handleUpdateUser(infoForPatch)
   }
 
@@ -74,37 +97,43 @@ class UserLocationInfoForm extends Component {
                   type="text"
                   placeholder="City / Town"
                   name="city_town"
-                  value={`${city_town}, ${this.props.location.state_province}`}
+                  value={
+                    city_town.length !== 0
+                      ? `${city_town}, ${this.props.location.state_province}`
+                      : ""
+                  }
                 />
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-25">
-                <label> State </label>
+            {user.id === current_user.id && (
+              <div className="row">
+                <div className="col-25">
+                  <label> State </label>
+                </div>
+                <div className="col-75">
+                  <select
+                    placeholder="State / Province"
+                    name="state_province"
+                    value={state_province}>
+                    <option> Select A State</option>
+                    <option> Not on the list</option>
+                    {USStates.map(state => (
+                      <option>{state}</option>
+                    ))}
+                  </select>
+                  {state_province === "Not on the list" && (
+                    <div className="col-75">
+                      <input
+                        type="text"
+                        name="user_state_provice_input"
+                        placeholder="Type your provice here"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="col-75">
-                <select
-                  placeholder="State / Province"
-                  name="state_province"
-                  value={state_province}>
-                  <option> Select A State</option>
-                  <option> Not on the list</option>
-                  {USStates.map(state => (
-                    <option>{state}</option>
-                  ))}
-                </select>
-                {state_province === "Not on the list" && (
-                  <div className="col-75">
-                    <input
-                      type="text"
-                      name="user_state_provice_input"
-                      placeholder="Type your provice here"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
+            )}
 
             <div className="row">
               <div className="col-25">
