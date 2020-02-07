@@ -20,7 +20,7 @@ class UserInfoEditForm extends Component {
 
   componentDidUpdate = prevProps => {
     if (this.props.user !== prevProps.user) {
-      console.log(this.props)
+      // console.log(this.props)
       this.setState({
         first_name: this.props.user.first_name,
         last_name: this.props.user.last_name,
@@ -58,6 +58,8 @@ class UserInfoEditForm extends Component {
 
     const { first_name, last_name, email, bio_content, specialty } = this.state
 
+    let readOnly = current_user.id === user.id ? "" : "disabled"
+
     return (
       <div className="container">
         <form
@@ -71,6 +73,7 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
+                  disabled={readOnly}
                   type="text"
                   placeholder="First Name"
                   name="first_name"
@@ -85,6 +88,7 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
+                  disabled={readOnly}
                   type="text"
                   placeholder="Last Name"
                   name="last_name"
@@ -99,6 +103,7 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
+                  disabled={readOnly}
                   type="email"
                   placeholder="email"
                   name="email"
@@ -121,7 +126,7 @@ class UserInfoEditForm extends Component {
                 <label>{userVocal ? "Voice Type: " : "Instrument: "}</label>
               </div>
               <div className="col-75">
-                <input value={specialty} name="specialty" />
+                <input value={specialty} name="specialty" disabled={readOnly} />
               </div>
             </div>
 
@@ -130,7 +135,11 @@ class UserInfoEditForm extends Component {
                 <label> Short Bio: </label>
               </div>
               <div className="col-75">
-                <textarea value={bio_content} name="bio_content" />
+                <textarea
+                  value={bio_content}
+                  name="bio_content"
+                  disabled={readOnly}
+                />
               </div>
             </div>
 
