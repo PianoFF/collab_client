@@ -66,7 +66,10 @@ class NewMessage extends Component {
             />
           </div>
           <div>
-            <button id="send-msg" type="submit">
+            <button
+              id="send-msg"
+              type="submit"
+              onClick={this.props.handleModal}>
               Send
             </button>
           </div>

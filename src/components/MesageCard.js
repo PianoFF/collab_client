@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import ReactCardFlip from "react-card-flip"
 import API from "../API/API"
+import Modal from "react-modal"
+import NewMessage from "./NewMessage"
 
 const useStyles = makeStyles({
   root: {
@@ -35,11 +37,18 @@ const useStyles = makeStyles({
   }
 })
 
-const MessageCard = ({
-  msg,
-  handleMessageStatus,
-  handleReceiverMessageDelete
-}) => {
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+}
+
+const MessageCard = ({ msg, handleMessageStatus }) => {
   const [isFlipped, setIsFlipped] = useState(false)
   const classes = useStyles()
 
@@ -48,8 +57,7 @@ const MessageCard = ({
     API.update_message({
       id: msg.id,
       read: true
-    })
-    handleMessageStatus(msg)
+    }).then(message => handleMessageStatus(message))
   }
 
   const handleDeleteMessage = e => {
@@ -58,6 +66,12 @@ const MessageCard = ({
       id: msg.id,
       receiver_delete: true
     }).then(message => handleMessageStatus(message))
+  }
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const handleModal = () => {
+    setModalIsOpen(!modalIsOpen)
   }
 
   return (
@@ -98,7 +112,7 @@ const MessageCard = ({
             </Typography>
           </CardContent>
           <CardActions className={classes.movebutton}>
-            <Button size="small" variant="outlined">
+            <Button size="small" variant="outlined" onClick={handleModal}>
               Reply
             </Button>
             <Button
@@ -109,6 +123,9 @@ const MessageCard = ({
             </Button>
           </CardActions>
         </Card>
+        <Modal isOpen={modalIsOpen} style={customStyles}>
+          <NewMessage recipient={msg.sender} handleModal={handleModal} />
+        </Modal>
       </div>
     </ReactCardFlip>
   )
