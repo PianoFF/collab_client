@@ -211,6 +211,19 @@ const new_location = location => {
   }).then(to_json)
 }
 
+const update_message_read = msgID => {
+  return fetch(`${NEW_MESSAGE}/${msgID}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify({
+      read: true
+    })
+  }).then(to_json)
+}
 const clearToken = () => localStorage.removeItem("token")
 
 export default {
@@ -224,6 +237,7 @@ export default {
   newpost,
   delete_post,
   new_message,
+  update_message_read,
   clearToken,
   hasToken,
   instrument,

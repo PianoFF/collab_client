@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import MessageCard from "../components/MesageCard"
 
-const Inbox = ({ user }) => {
+const Inbox = ({ user, handleMessageStatus }) => {
   return (
     <div className="inbox-container">
       <div>
         {user.received_messages.map(msg => (
-          <MessageCard msg={msg} />
+          <MessageCard msg={msg} handleMessageStatus={handleMessageStatus} />
         ))}
       </div>
     </div>

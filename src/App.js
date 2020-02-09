@@ -42,6 +42,26 @@ class App extends Component {
       })
     })
   }
+
+  handleMessageStatus = msgID => {
+    // const message = this.state.user.received_messages.find(
+    //   msg => msg.id === msgID
+    // )
+    this.setState({
+      user: {
+        ...this.state.user,
+        received_messages: this.state.user.received_messages.map(msg =>
+          msg.id === msgID
+            ? {
+                ...msg,
+                read: true
+              }
+            : msg
+        )
+      }
+    })
+  }
+
   render() {
     const { user } = this.state
 
@@ -53,6 +73,7 @@ class App extends Component {
             user={user}
             setUser={this.setUser}
             handleUpdateUser={this.handleUpdateUser}
+            handleMessageStatus={this.handleMessageStatus}
           />
         )}
       </div>

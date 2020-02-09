@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent"
 import Button from "@material-ui/core/Button"
 import Typography from "@material-ui/core/Typography"
 import ReactCardFlip from "react-card-flip"
+import API from "../API/API"
 
 const useStyles = makeStyles({
   root: {
@@ -34,19 +35,21 @@ const useStyles = makeStyles({
   }
 })
 
-const MessageCard = ({ msg }) => {
+const MessageCard = ({ msg, handleMessageStatus }) => {
   const [isFlipped, setIsFlipped] = useState(false)
   const classes = useStyles()
 
   const handleCardFlip = () => {
     setIsFlipped(!isFlipped)
+    API.update_message_read(msg.id)
+    handleMessageStatus(msg.id)
   }
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
       <div className="card-front" onClick={handleCardFlip}>
         <Card className={classes.root} variant="outlined">
-          <h1> You Have a Message From: </h1>
+          <h3> You Have a Message From: </h3>
           <CardContent>
             <Typography
               className={classes.title}
@@ -56,6 +59,11 @@ const MessageCard = ({ msg }) => {
               component="h2">
               {msg.sender.first_name + " " + msg.sender.last_name}
             </Typography>
+            {msg.read && (
+              <Typography className={classes.pos} color="textSecondary">
+                Read on: {msg.updated_at}
+              </Typography>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -64,6 +72,9 @@ const MessageCard = ({ msg }) => {
           <CardContent>
             <Typography variant="h5" component="h2">
               {msg.title}
+            </Typography>
+            <Typography className={classes.pos} color="textSecondary">
+              Received on: {msg.received_at}
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
               Content:

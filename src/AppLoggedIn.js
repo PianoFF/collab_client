@@ -76,7 +76,7 @@ class AppLoggedIn extends Component {
 
   render() {
     const { posts, users, crnt_user_posts } = this.state
-    const { user, handleUpdateUser } = this.props
+    const { user, handleUpdateUser, handleMessageStatus } = this.props
 
     return (
       <div id="AppLoggedIn">
@@ -109,7 +109,7 @@ class AppLoggedIn extends Component {
               />
             )}></Route>
           <Route exact path={"/inbox"}>
-            <Inbox user={user} />
+            <Inbox user={user} handleMessageStatus={handleMessageStatus} />
           </Route>
         </Router>
       </div>
