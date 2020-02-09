@@ -35,14 +35,29 @@ const useStyles = makeStyles({
   }
 })
 
-const MessageCard = ({ msg, handleMessageStatus }) => {
+const MessageCard = ({
+  msg,
+  handleMessageStatus,
+  handleReceiverMessageDelete
+}) => {
   const [isFlipped, setIsFlipped] = useState(false)
   const classes = useStyles()
 
   const handleCardFlip = () => {
     setIsFlipped(!isFlipped)
-    API.update_message_read(msg.id)
-    handleMessageStatus(msg.id)
+    API.update_message({
+      id: msg.id,
+      read: true
+    })
+    handleMessageStatus(msg)
+  }
+
+  const handleDeleteMessage = e => {
+    // e.target.innerText === "DELETE" &&
+    API.update_message({
+      id: msg.id,
+      receiver_delete: true
+    }).then(message => handleMessageStatus(message))
   }
 
   return (
@@ -86,7 +101,10 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
             <Button size="small" variant="outlined">
               Reply
             </Button>
-            <Button size="small" variant="outlined">
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={handleDeleteMessage}>
               Delete
             </Button>
           </CardActions>

@@ -5,9 +5,15 @@ const Inbox = ({ user, handleMessageStatus }) => {
   return (
     <div className="inbox-container">
       <div>
-        {user.received_messages.map(msg => (
-          <MessageCard msg={msg} handleMessageStatus={handleMessageStatus} />
-        ))}
+        {user.received_messages.map(
+          msg =>
+            msg.receiver_delete === false && (
+              <MessageCard
+                msg={msg}
+                handleMessageStatus={handleMessageStatus}
+              />
+            )
+        )}
       </div>
     </div>
   )

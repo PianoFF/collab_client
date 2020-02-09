@@ -61,6 +61,7 @@ class AppLoggedIn extends Component {
       )
       .catch(errorPromise => alert(errorPromise.errors))
   }
+
   handleDeletePost = postID => {
     API.delete_post(postID)
       .then(post =>

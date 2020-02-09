@@ -7,6 +7,7 @@ import "./containers/FlexContainer.css"
 import FrontPage from "./containers/FrontPage"
 import API from "./API/API"
 import AppLoggedIn from "./AppLoggedIn"
+import { Message } from "semantic-ui-react"
 
 // import { ThemeProvider } from "styled-components"
 
@@ -43,20 +44,26 @@ class App extends Component {
     })
   }
 
-  handleMessageStatus = msgID => {
+  handleMessageStatus = msg => {
     // const message = this.state.user.received_messages.find(
     //   msg => msg.id === msgID
     // )
     this.setState({
       user: {
         ...this.state.user,
-        received_messages: this.state.user.received_messages.map(msg =>
-          msg.id === msgID
-            ? {
-                ...msg,
-                read: true
-              }
-            : msg
+        received_messages: this.state.user.received_messages.map(message =>
+          message.id === msg.id ? msg : message
+        )
+      }
+    })
+  }
+
+  handleReceiverMessageDelete = () => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        received_messages: this.state.user.received_messages.filter(
+          msg => msg.receiver_delete === false
         )
       }
     })
