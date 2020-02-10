@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
 import "./App.css"
 import "./components/Button.css"
 import "./containers/FlexContainer.css"
@@ -7,7 +6,6 @@ import "./containers/FlexContainer.css"
 import FrontPage from "./containers/FrontPage"
 import API from "./API/API"
 import AppLoggedIn from "./AppLoggedIn"
-import { Message } from "semantic-ui-react"
 
 // import { ThemeProvider } from "styled-components"
 

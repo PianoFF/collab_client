@@ -62,7 +62,7 @@ const PostCard = ({ post, showMessageBox, user, deletePost }) => {
         {/* <div id="message-box">
           {showMessageBox === post.id && <NewMessage recipient={post.user} />}
         </div> */}
-        <Modal isOpen={modalIsOpen} style={customStyles}>
+        <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
           <NewMessage recipient={post.user} handleModal={handleModal} />
         </Modal>
       </div>

@@ -62,6 +62,7 @@ class UserLocationInfoForm extends Component {
 
     // console.log(infoForPatch)
     this.props.handleUpdateUser(infoForPatch)
+    alert("Your information has been updated.")
   }
 
   render() {
@@ -69,7 +70,7 @@ class UserLocationInfoForm extends Component {
     const { user, current_user } = this.props
 
     let readOnly = current_user.id === user.id ? "" : "disabled"
-    console.log(readOnly)
+    // console.log(readOnly)
     return (
       <div className="location-container">
         <form
@@ -92,24 +93,41 @@ class UserLocationInfoForm extends Component {
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-25">
-                <label>City</label>
+            {user.id === current_user.id ? (
+              <div className="row">
+                <div className="col-25">
+                  <label>City</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    type="text"
+                    placeholder="City / Town"
+                    name="city_town"
+                    disabled={readOnly}
+                    value={city_town}
+                  />
+                </div>
               </div>
-              <div className="col-75">
-                <input
-                  type="text"
-                  placeholder="City / Town"
-                  name="city_town"
-                  disabled={readOnly}
-                  value={
-                    city_town.length !== 0
-                      ? `${city_town}, ${this.props.location.state_province}`
-                      : ""
-                  }
-                />
+            ) : (
+              <div className="row">
+                <div className="col-25">
+                  <label>City</label>
+                </div>
+                <div className="col-75">
+                  <input
+                    type="text"
+                    placeholder="City / Town"
+                    name="city_town"
+                    disabled={readOnly}
+                    value={
+                      city_town.length !== 0
+                        ? `${city_town}, ${this.props.location.state_province}`
+                        : ""
+                    }
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {user.id === current_user.id && (
               <div className="row">

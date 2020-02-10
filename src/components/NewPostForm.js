@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import API from "../API/API"
+import "./Button.css"
 
 class NewPostForm extends Component {
   defaultState = {
@@ -22,6 +22,7 @@ class NewPostForm extends Component {
   handleFormSubmit = e => {
     e.preventDefault()
     this.props.handleNewPost(this.state)
+    this.props.handleModal()
     this.setState({
       ...this.defaultState
     })
@@ -32,7 +33,7 @@ class NewPostForm extends Component {
 
     return (
       <form
-        id="new-post"
+        id="new-post-form"
         onChange={this.handleFormChange}
         onSubmit={this.handleFormSubmit}>
         <div className="field-wrap">
@@ -78,9 +79,14 @@ class NewPostForm extends Component {
             autoComplete="off"
           />
         </div>
-        <button type="submit" className="button button-block">
-          Submit Post
-        </button>
+        <div id="new-post">
+          <button type="button" onClick={this.props.handleModal}>
+            Cancel
+          </button>
+          <button type="submit" className="button button-block">
+            Submit Post
+          </button>
+        </div>
       </form>
     )
   }

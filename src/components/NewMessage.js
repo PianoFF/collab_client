@@ -21,13 +21,14 @@ class NewMessage extends Component {
 
   sendNewMessage = e => {
     e.preventDefault()
-    this.state.title.length > 0 &&
-      this.state.content.length > 0 &&
-      API.new_message(this.state)
-        .then(data => console.log(data))
-        .catch(errorPromise => {
-          errorPromise.then(data => alert(data.errors))
-        })
+    this.props.handleModal()
+    // this.state.title.length > 0 &&
+    //   this.state.content.length > 0 &&
+    API.new_message(this.state)
+      .then(data => console.log(data))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
 
     this.setState({
       ...this.defaultState
@@ -68,11 +69,11 @@ class NewMessage extends Component {
               value={content}
             />
           </div>
-          <div>
-            <button
-              id="send-msg"
-              type="submit"
-              onClick={this.props.handleModal}>
+          <div id="new-message">
+            <button id="cancel" type="button" onClick={this.props.handleModal}>
+              Cancel
+            </button>
+            <button id="send-msg" type="submit">
               Send
             </button>
           </div>

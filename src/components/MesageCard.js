@@ -65,7 +65,11 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
     API.update_message({
       id: msg.id,
       receiver_delete: true
-    }).then(message => handleMessageStatus(message))
+    })
+      .then(message => handleMessageStatus(message))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -123,7 +127,7 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
             </Button>
           </CardActions>
         </Card>
-        <Modal isOpen={modalIsOpen} style={customStyles}>
+        <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
           <NewMessage recipient={msg.sender} handleModal={handleModal} />
         </Modal>
       </div>

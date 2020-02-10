@@ -51,6 +51,7 @@ class UserInfoEditForm extends Component {
     }
 
     this.props.handleUpdateUser(infoForPatch)
+    alert("Your information has been updated.")
   }
 
   render() {

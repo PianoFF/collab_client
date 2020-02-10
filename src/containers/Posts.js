@@ -1,15 +1,16 @@
 import React, { Component } from "react"
 import PostCard from "../components/PostCard"
 import NewPostForm from "../components/NewPostForm"
+import Modal from "react-modal"
 
 class Posts extends Component {
   state = {
-    toShowNewPostBox: false
+    modalIsOpen: false
   }
 
-  toggleNewPostBox = () => {
+  handleModal = () => {
     this.setState({
-      toShowNewPostBox: !this.state.toShowNewPostBox
+      modalIsOpen: !this.state.modalIsOpen
     })
   }
 
@@ -22,22 +23,42 @@ class Posts extends Component {
     } = this.props
     const { toShowNewPostBox } = this.state
 
+    const customStyles = {
+      content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)"
+      }
+    }
+
     return (
       <div className="flex-container">
         <div>
-          {crnt_user_posts.map(post => (
-            <PostCard post={post} user={user} deletePost={handleDeletePost} />
-          ))}
           <div className="right-btm-cnr">
-            <button onClick={this.toggleNewPostBox}>
-              {toShowNewPostBox ? "Cancel" : "New Post"}
-            </button>
+            <button onClick={this.handleModal}>New Post</button>
           </div>
 
-          <div className="new-msg">
-            {toShowNewPostBox && <NewPostForm handleNewPost={handleNewPost} />}
-          </div>
+          {crnt_user_posts.map(post => (
+            <PostCard
+              key={post.id}
+              post={post}
+              user={user}
+              deletePost={handleDeletePost}
+            />
+          ))}
         </div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          style={customStyles}
+          ariaHideApp={false}>
+          <NewPostForm
+            handleNewPost={handleNewPost}
+            handleModal={this.handleModal}
+          />
+        </Modal>
       </div>
     )
   }
