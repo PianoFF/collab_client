@@ -13,44 +13,48 @@ class Profile extends Component {
   }
 
   userFetch = () => {
-    API.one_user(this.props.match.params.userID).then(user => {
-      // console.log(user)
-      const userProfile = Object.fromEntries(
-        Object.entries(user).filter(([key]) =>
-          [
-            "id",
-            "first_name",
-            "last_name",
-            "email",
-            "field",
-            "token",
-            "bio_content"
-          ].includes(key)
+    API.one_user(this.props.match.params.userID)
+      .then(user => {
+        // console.log(user)
+        const userProfile = Object.fromEntries(
+          Object.entries(user).filter(([key]) =>
+            [
+              "id",
+              "first_name",
+              "last_name",
+              "email",
+              "field",
+              "token",
+              "bio_content"
+            ].includes(key)
+          )
         )
-      )
 
-      const userSpecialty = Object.fromEntries(
-        Object.entries(user).filter(([key]) => ["specialty"].includes(key))
-      )
+        const userSpecialty = Object.fromEntries(
+          Object.entries(user).filter(([key]) => ["specialty"].includes(key))
+        )
 
-      if (userSpecialty.specialty) {
-        if (userSpecialty.specialty.voice_type) {
-          this.setState({
-            userVocal: userSpecialty.specialty.voice_type
-          })
-        } else {
-          const instrument = userSpecialty.specialty.instrument
-          this.setState({
-            userInstrumental: instrument
-          })
+        if (userSpecialty.specialty) {
+          if (userSpecialty.specialty.voice_type) {
+            this.setState({
+              userVocal: userSpecialty.specialty.voice_type
+            })
+          } else {
+            const instrument = userSpecialty.specialty.instrument
+            this.setState({
+              userInstrumental: instrument
+            })
+          }
         }
-      }
 
-      this.setState({
-        userProfile: userProfile,
-        userLocation: user.location
+        this.setState({
+          userProfile: userProfile,
+          userLocation: user.location
+        })
       })
-    })
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   componentDidUpdate(newProps) {

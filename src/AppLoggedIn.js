@@ -20,7 +20,9 @@ class AppLoggedIn extends Component {
   componentDidMount() {
     API.all_users()
       .then(userData => this.setState({ users: userData }))
-      .catch(errorPromise => alert(errorPromise.errors))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
 
     API.all_posts()
       .then(postsData => {
@@ -31,7 +33,9 @@ class AppLoggedIn extends Component {
           )
         })
       })
-      .catch(errorPromise => alert(errorPromise.errors))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   handleNewPost = newPost => {
@@ -42,7 +46,9 @@ class AppLoggedIn extends Component {
           posts: [...this.state.posts, post]
         })
       )
-      .catch(errorPromise => alert(errorPromise.errors))
+      .catch(errorPromise => {
+        errorPromise.then(data => alert(data.errors))
+      })
   }
 
   handleLogout = e => {
