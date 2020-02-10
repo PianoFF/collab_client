@@ -1,0 +1,24 @@
+.flex-container,
+.inbox-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.flex-container > div,
+.inbox-container > div {
+  background-color: #bf6c5a;
+  width: 45%;
+  border-radius: 3%;
+  margin: 2%;
+  margin-top: 1%;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #f2b6a0, #d6aea5);
+  height: 90%;
+  overflow: scroll;
+}

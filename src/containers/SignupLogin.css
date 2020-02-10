@@ -1,0 +1,14 @@
+.tab-group {
+  display: inline;
+}
+.tabs li {
+  display: inline;
+  list-style-type: none;
+}
+
+li a {
+  color: #04d9d9;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
