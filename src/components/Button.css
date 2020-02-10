@@ -9,3 +9,8 @@ button {
 button:hover {
   background-color: thistle;
 }
+
+#new-post button {
+  display: inline-block;
+  margin: 3%;
+}
