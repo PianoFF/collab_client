@@ -9,18 +9,6 @@ class Home extends Component {
     showMessageBox: null
   }
 
-  toggleMessageBox = postID => {
-    if (this.state.showMessageBox === postID) {
-      this.setState({
-        showMessageBox: null
-      })
-    } else {
-      this.setState({
-        showMessageBox: postID
-      })
-    }
-  }
-
   render() {
     const { showMessageBox } = this.state
     const { user, deletePost, posts, users } = this.props
@@ -34,7 +22,6 @@ class Home extends Component {
           <PostsList
             posts={posts}
             showMessageBox={showMessageBox}
-            toggleMessageBox={this.toggleMessageBox}
             user={user}
             deletePost={deletePost}
           />

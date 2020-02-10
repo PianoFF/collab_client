@@ -21,11 +21,14 @@ class NewMessage extends Component {
 
   sendNewMessage = e => {
     e.preventDefault()
-    API.new_message(this.state)
-      .then(data => console.log(data))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
-      })
+    this.state.title.length > 0 &&
+      this.state.content.length > 0 &&
+      API.new_message(this.state)
+        .then(data => console.log(data))
+        .catch(errorPromise => {
+          errorPromise.then(data => alert(data.errors))
+        })
+
     this.setState({
       ...this.defaultState
     })
