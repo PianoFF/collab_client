@@ -26,7 +26,12 @@ class Posts extends Component {
       <div className="flex-container">
         <div>
           {crnt_user_posts.map(post => (
-            <PostCard post={post} user={user} deletePost={handleDeletePost} />
+            <PostCard
+              key={post.id}
+              post={post}
+              user={user}
+              deletePost={handleDeletePost}
+            />
           ))}
           <div className="right-btm-cnr">
             <button onClick={this.toggleNewPostBox}>
