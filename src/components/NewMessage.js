@@ -69,7 +69,10 @@ class NewMessage extends Component {
               value={content}
             />
           </div>
-          <div>
+          <div id="new-message">
+            <button id="cancel" type="button" onClick={this.props.handleModal}>
+              Cancel
+            </button>
             <button id="send-msg" type="submit">
               Send
             </button>

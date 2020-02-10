@@ -10,7 +10,8 @@ button:hover {
   background-color: thistle;
 }
 
-#new-post button {
+#new-post button,
+#new-message button {
   display: inline-block;
   margin: 3%;
 }
