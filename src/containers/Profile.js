@@ -52,8 +52,9 @@ class Profile extends Component {
           userLocation: user.location
         })
       })
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
+      .catch(error => {
+        console.log(error)
+        alert(error)
       })
   }
 

@@ -22,13 +22,22 @@ const INSTRUMENT = `${COLLAB_ENDPOINT}/instrumentals`
 
 const LOCATION = `${COLLAB_ENDPOINT}/locations`
 
-const to_json = resp => {
-  if (resp.ok) {
-    return resp.json()
+// const to_json = resp => {
+const to_json = async res => {
+  if (res.ok) {
+    return res.json()
   } else {
-    throw resp.json()
+    const errorBody = await res.json()
+    throw errorBody.error
   }
 }
+
+// if (resp.ok) {
+//   return resp.json()
+// } else {
+//   throw resp.json()
+// }
+// }
 
 const signup = user => {
   return fetch(SIGN_UP, {

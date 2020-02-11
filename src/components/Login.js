@@ -19,8 +19,9 @@ class Login extends Component {
 
     API.login(this.state)
       .then(user => this.props.onSuccess(user))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
+      .catch(error => {
+        console.log(error)
+        alert(error)
       })
   }
 

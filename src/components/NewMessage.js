@@ -26,8 +26,9 @@ class NewMessage extends Component {
     //   this.state.content.length > 0 &&
     API.new_message(this.state)
       .then(data => console.log(data))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
+      .catch(error => {
+        console.log(error)
+        alert(error)
       })
 
     this.setState({

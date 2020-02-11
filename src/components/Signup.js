@@ -30,8 +30,9 @@ class Signup extends Component {
         this.props.onSuccess(user)
         // console.table(user)
       })
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
+      .catch(error => {
+        console.log(error)
+        alert(error)
       })
     this.setState({
       ...this.defaultState

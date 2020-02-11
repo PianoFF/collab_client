@@ -67,8 +67,9 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
       receiver_delete: true
     })
       .then(message => handleMessageStatus(message))
-      .catch(errorPromise => {
-        errorPromise.then(data => alert(data.errors))
+      .catch(error => {
+        console.log(error)
+        alert(error)
       })
   }
 
