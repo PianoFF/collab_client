@@ -1,20 +1,26 @@
-.nav > a {
-  height: auto;
-  border-bottom-color: #f2b6a0;
-  border-bottom: 2px solid;
+.nav a {
+  background-color: #5d4e5e;
+  color: white;
   font-size: 1.8em;
   font-family: "Kalam", cursive;
   text-decoration: none;
-  border-radius: 15%;
-  -webkit-text-stroke: 1px #79c2a6;
-  color: rgb(15, 13, 13);
+
+  /* color: rgb(15, 13, 13); */
   /* text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
 a.active {
-  text-decoration: overline;
-  text-decoration-color: rgb(13, 94, 76);
+  /* text-decoration: overline; */
+  color: white;
+}
+
+.collab-logo {
+  /* border-radius: 30%; */
+  width: 5em;
+  left: 0%;
+  top: 0em;
+  position: absolute;
 }
 
 .nav {
@@ -24,5 +30,44 @@ a.active {
   align-items: center;
   align-content: center;
   width: 100%;
-  height: 5em;
+  height: 7em;
+}
+
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  max-width: 10em;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #7399bb;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  margin-left: 0%;
+  margin-top: 7em;
 }

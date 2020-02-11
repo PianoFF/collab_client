@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import API from "../API/API"
+import Button from "@material-ui/core/Button"
 
 class Login extends Component {
   state = {
@@ -32,7 +33,9 @@ class Login extends Component {
       <div className="login-form">
         <div className="tab-content">
           <div id="login">
-            <h1 style={{ color: "#89D1D9" }}>Welcome Back!</h1>
+            <h1 style={{ color: "#89D1D9", textAlign: "center" }}>
+              Welcome Back!
+            </h1>
 
             <form
               action="/"
@@ -67,9 +70,9 @@ class Login extends Component {
                 />
               </div>
 
-              <button type="submit" className="button button-block">
+              <Button variant="contained" color="secondary" type="submit">
                 Log In
-              </button>
+              </Button>
             </form>
           </div>
         </div>

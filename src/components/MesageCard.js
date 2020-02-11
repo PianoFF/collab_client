@@ -15,8 +15,8 @@ const useStyles = makeStyles({
     minWidth: 275,
     marginLeft: "5%",
     width: "90%",
-    borderLeft: "4px solid #89d1d9",
-    backgroundColor: "rgb(231, 200, 192)",
+    // borderLeft: "4px solid #89d1d9",
+    backgroundColor: "white",
     borderRadius: "3%",
     marginBottom: "1em",
     marginTop: "1em"
@@ -117,12 +117,16 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
             </Typography>
           </CardContent>
           <CardActions className={classes.movebutton}>
-            <Button size="small" variant="outlined" onClick={handleModal}>
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              onClick={handleModal}>
               Reply
             </Button>
             <Button
               size="small"
-              variant="outlined"
+              variant="contained"
               onClick={handleDeleteMessage}>
               Delete
             </Button>

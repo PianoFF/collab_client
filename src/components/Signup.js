@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import API from "../API/API"
-import "./Signup.css"
+import Button from "@material-ui/core/Button"
 
 class Signup extends Component {
   defaultState = {
@@ -135,9 +135,9 @@ class Signup extends Component {
                 />
               </div>
 
-              <button type="submit" className="button button-block">
-                Get Started
-              </button>
+              <Button variant="contained" color="secondary" type="submit">
+                Sign Up
+              </Button>
             </form>
           </div>
         </div>

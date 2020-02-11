@@ -3,6 +3,33 @@ import NewMessage from "./NewMessage"
 import Modal from "react-modal"
 import { useState } from "react"
 
+import { makeStyles } from "@material-ui/core/styles"
+import Card from "@material-ui/core/Card"
+import CardActions from "@material-ui/core/CardActions"
+import CardContent from "@material-ui/core/CardContent"
+import Button from "@material-ui/core/Button"
+import Typography from "@material-ui/core/Typography"
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275
+  },
+  bullet: {
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)"
+  },
+  title: {
+    fontSize: 14
+  },
+  pos: {
+    marginBottom: 12
+  },
+  body: {
+    textAlign: "left"
+  }
+})
+
 const PostCard = ({ post, showMessageBox, user, deletePost }) => {
   const handleDeletePost = e => {
     e.preventDefault()
@@ -11,11 +38,15 @@ const PostCard = ({ post, showMessageBox, user, deletePost }) => {
   }
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [showMore, setShowMore] = useState(false)
 
-  const handleModal = () => {
+  const handelModal = () => {
     setModalIsOpen(!modalIsOpen)
   }
 
+  const handelShowMore = () => {
+    setShowMore(!showMore)
+  }
   const customStyles = {
     content: {
       top: "50%",
@@ -27,47 +58,59 @@ const PostCard = ({ post, showMessageBox, user, deletePost }) => {
     }
   }
 
+  const classes = useStyles()
+
   return (
-    <div className="card">
-      <div className="title">
-        <div>
-          <h1>{post.title}</h1>
-          <p>
-            <span>by </span>
-            {post.user.first_name} <br />
-            <span> posted for: </span>
-            {post.post_type}
-            <br />
-            <span> repertoire: </span>
-            {post.repertoire}
-          </p>
-        </div>
-      </div>
+    <Card className={classes.root} variant="outlined">
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color="textSecondary"
+          gutterBottom>
+          {new Date(post.created_at).toLocaleString()}
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {post.title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          by: {post.user.first_name} {post.user.last_name}
+        </Typography>
+        <Typography variant="body2" component="p">
+          Repertoire: {post.repertoire}
+        </Typography>
+        {showMore && (
+          <Typography className={classes.body} variant="body2" component="p">
+            {post.content}
+          </Typography>
+        )}
+      </CardContent>
+      <CardActions>
+        <Button
+          size="small"
+          color="secondary"
+          variant="contained"
+          onClick={handelShowMore}>
+          {showMore ? "close" : "read more"}
+        </Button>
+      </CardActions>
 
-      <div className="content">
-        <div className="post-body">
-          <p> {post.content} </p>
-        </div>
+      {/* <p> {post.content} </p> */}
 
-        <div className="right-btm-cnr">
-          {post.user.id !== user.id && (
-            <button id="message" onClick={handleModal}>
+      <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
+        <NewMessage recipient={post.user} handelModal={handelModal} />
+      </Modal>
+    </Card>
+  )
+}
+
+export default PostCard
+{
+  /* {post.user.id !== user.id && (
+            <button id="message" onClick={handelModal}>
               {showMessageBox === post.id ? "Cancel" : "Message"}
             </button>
           )}
           {post.user.id === user.id && (
             <button onClick={handleDeletePost}> Delete</button>
-          )}
-        </div>
-        {/* <div id="message-box">
-          {showMessageBox === post.id && <NewMessage recipient={post.user} />}
-        </div> */}
-        <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
-          <NewMessage recipient={post.user} handleModal={handleModal} />
-        </Modal>
-      </div>
-    </div>
-  )
+          )} */
 }
-
-export default PostCard

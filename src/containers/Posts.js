@@ -35,7 +35,7 @@ class Posts extends Component {
     }
 
     return (
-      <div className="flex-container">
+      <div className="flex-container post-container">
         <div>
           <div className="right-btm-cnr">
             <button onClick={this.handleModal}>New Post</button>

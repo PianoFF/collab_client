@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Button from "@material-ui/core/Button"
 
 class UserInfoEditForm extends Component {
   state = {
@@ -145,7 +146,9 @@ class UserInfoEditForm extends Component {
             </div>
 
             {current_user.id === user.id && (
-              <button type="submit"> Update </button>
+              <Button variant="contained" color="secondary" type="submit">
+                Update
+              </Button>
             )}
           </div>
         </form>

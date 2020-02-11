@@ -5,7 +5,7 @@ import Login from "../components/Login"
 
 class SignupLogin extends Component {
   state = {
-    signUp: true
+    signUp: false
   }
 
   handleSignup = e => {

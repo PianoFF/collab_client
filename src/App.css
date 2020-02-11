@@ -1,18 +1,18 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
+} */
+/* 
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,11 +22,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -44,26 +44,12 @@ body,
 #app > div,
 #AppLoggedIn > div {
   height: 100%;
-  background-image: linear-gradient(to bottom right, #047070, #89d1d9, white);
+  background-image: url("./bckgrnd-img.jpg");
+  background-attachment: fixed;
+  background-size: cover;
   font-family: "Kalam", cursive;
-}
-
-a {
-  height: auto;
-  border-bottom-color: #f2b6a0;
-  border-bottom: 2px solid;
-  font-size: 1.8em;
-  font-family: "Kalam", cursive;
-  text-decoration: none;
-  border-radius: 15%;
-  -webkit-text-stroke: 1px #79c2a6;
-  color: rgb(15, 13, 13);
-  margin-left: none;
-  /* text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-    -1px 1px 0 #000, 1px 1px 0 #000; */
 }
 
 a.active {
-  text-decoration: overline;
-  text-decoration-color: rgb(13, 94, 76);
+  color: #5d4e5e;
 }

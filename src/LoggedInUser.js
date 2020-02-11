@@ -9,8 +9,9 @@ import Home from "./containers/Home"
 import Posts from "./containers/Posts"
 import Profile from "./containers/Profile"
 import Inbox from "./containers/Inbox"
+import Manifesto from "./components/Manifesto"
 
-class AppLoggedIn extends Component {
+class LoggedInUser extends Component {
   state = {
     posts: [],
     users: [],
@@ -95,10 +96,13 @@ class AppLoggedIn extends Component {
     const { user, handleUpdateUser, handleMessageStatus } = this.props
 
     return (
-      <div id="AppLoggedIn">
+      <div id="LoggedInUser">
         <Router>
           <Navbar LogOut={this.handleLogout} user={user} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route exact path="/" render={() => <Redirect to="/about" />} />
+          <Route exact path={"/about"}>
+            <Manifesto />
+          </Route>
           <Route exact path={"/home"}>
             <Home
               user={user}
@@ -133,4 +137,7 @@ class AppLoggedIn extends Component {
   }
 }
 
-export default AppLoggedIn
+// declare your def props here
+// AppLoggedIn.defaultProps = {}
+
+export default LoggedInUser

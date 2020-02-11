@@ -1,9 +1,7 @@
 import React from "react"
-import "./Manifesto.css"
 
-export const Manifesto = () => (
+const Manifesto = () => (
   <p className="manifesto">
-    <img src="collab-logo.png" className="collab-logo sepia"></img> <br />
     Manifesto: <br />
     <strong>
       <i>Collab</i>
@@ -28,3 +26,5 @@ export const Manifesto = () => (
     has to offer is only available to registered users.
   </p>
 )
+
+export default Manifesto

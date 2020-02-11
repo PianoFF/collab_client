@@ -5,9 +5,26 @@ import "./containers/FlexContainer.css"
 
 import FrontPage from "./containers/FrontPage"
 import API from "./API/API"
-import AppLoggedIn from "./AppLoggedIn"
+import LoggedInUser from "./LoggedInUser"
 
-// import { ThemeProvider } from "styled-components"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: "#5d4e5e",
+      main: "#352236",
+      dark: "#251725",
+      contrastText: "#fff"
+    },
+    secondary: {
+      light: "#7399bb",
+      main: "#5080aa",
+      dark: "#385976",
+      contrastText: "#000"
+    }
+  }
+})
 
 class App extends Component {
   state = {
@@ -71,17 +88,19 @@ class App extends Component {
     const { user } = this.state
 
     return (
-      <div id="app">
-        {!user && <FrontPage user={user} setUser={this.setUser} />}
-        {user && (
-          <AppLoggedIn
-            user={user}
-            setUser={this.setUser}
-            handleUpdateUser={this.handleUpdateUser}
-            handleMessageStatus={this.handleMessageStatus}
-          />
-        )}
-      </div>
+      <ThemeProvider theme={theme}>
+        <div id="app">
+          {!user && <FrontPage user={user} setUser={this.setUser} />}
+          {user && (
+            <LoggedInUser
+              user={user}
+              setUser={this.setUser}
+              handleUpdateUser={this.handleUpdateUser}
+              handleMessageStatus={this.handleMessageStatus}
+            />
+          )}
+        </div>
+      </ThemeProvider>
     )
   }
 }

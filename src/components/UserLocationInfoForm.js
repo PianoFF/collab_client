@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import USStates from "./USStates"
 import CountryList from "./CountryList"
+import Button from "@material-ui/core/Button"
 
 class UserLocationInfoForm extends Component {
   conditionalState = () => {
@@ -194,7 +195,9 @@ class UserLocationInfoForm extends Component {
             </div>
 
             {current_user.id === user.id && (
-              <button type="submit"> Update </button>
+              <Button variant="contained" color="secondary" type="submit">
+                Update
+              </Button>
             )}
           </div>
         </form>

@@ -7,8 +7,15 @@
 }
 
 li a {
-  color: #04d9d9;
+  color: white;
+  background-color: #5080aa;
+  border-radius: 5%;
   text-align: center;
-  padding: 16px;
+  padding: 2%;
+  margin: 1em;
   text-decoration: none;
+}
+
+li a:hover {
+  background-color: #385976;
 }

@@ -14,8 +14,8 @@
   margin-bottom: 3em;
   margin-top: 2em;
   vertical-align: top;
-  border-style: outset;
-  border-color: #bf6c5a;
+  /* border-style: outset;
+  border-color: #bf6c5a; */
   overflow: scroll;
 }
 
@@ -77,8 +77,8 @@
 }
 
 .info-box-btm {
-  border-style: outset;
-  border-color: #bf6c5a;
+  /* border-style: outset;
+  border-color: #bf6c5a; */
   display: inline-block;
   margin-left: 30%;
   margin-top: none;
