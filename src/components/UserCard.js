@@ -12,7 +12,7 @@ const UserCard = ({ user }) => {
           <h1>{full_name}</h1>
           <p>
             <span> is a/an </span>
-            {user.field.voice_type} <br />
+            {user.field} <br />
           </p>
         </div>
       </div>
