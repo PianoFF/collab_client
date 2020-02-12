@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+
+import Button from "@material-ui/core/Button"
 import "./Button.css"
 
 class NewPostForm extends Component {
@@ -12,17 +14,17 @@ class NewPostForm extends Component {
   state = {
     ...this.defaultState
   }
-  handleFormChange = e => {
+  handelFormChange = e => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
     })
   }
 
-  handleFormSubmit = e => {
+  handelFormSubmit = e => {
     e.preventDefault()
-    this.props.handleNewPost(this.state)
-    this.props.handleModal()
+    this.props.handelNewPost(this.state)
+    this.props.handelModal()
     this.setState({
       ...this.defaultState
     })
@@ -33,60 +35,81 @@ class NewPostForm extends Component {
 
     return (
       <form
-        id="new-post-form"
-        onChange={this.handleFormChange}
-        onSubmit={this.handleFormSubmit}>
-        <div className="field-wrap">
-          <label>
-            Title <span className="req">*</span>
-          </label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            required
-            autoComplete="off"
-          />
+        className="new-post-form"
+        onChange={this.handelFormChange}
+        onSubmit={this.handelFormSubmit}>
+        <div className="action_page.php">
+          <div className="row">
+            <div className="col-25">
+              <label>
+                Title <span className="req">*</span>
+              </label>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="title"
+                value={title}
+                required
+                autoComplete="off"
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-25">
+              <label>
+                This post is for: <span className="req">*</span>
+              </label>
+            </div>
+            <div className="col-75">
+              <select name="post_type" value={post_type}>
+                <option value="hiring">Hiring</option>
+                <option value="promoting"> Promoting</option>
+                <option value="social"> Social</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-25">
+              <label>
+                Content <span className="req">*</span>
+              </label>
+            </div>
+            <div className="col-75">
+              <textarea
+                type="textarea"
+                name="content"
+                value={content}
+                required
+                autoComplete="off"
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-25">
+              <label>Repertoire</label>
+            </div>
+            <div className="col-75">
+              <input
+                type="text"
+                name="repertoire"
+                value={repertoire}
+                autoComplete="off"
+              />
+            </div>
+          </div>
         </div>
-        <div className="field-wrap">
-          <label>
-            This post is for: <span className="req">*</span>
-          </label>
-          <select name="post_type" value={post_type}>
-            <option value="hiring">Hiring</option>
-            <option value="promoting"> Promoting</option>
-            <option value="social"> Social</option>
-          </select>
-        </div>
-        <div className="field-wrap">
-          <label>
-            Content <span className="req">*</span>
-          </label>
-          <textarea
-            type="textarea"
-            name="content"
-            value={content}
-            required
-            autoComplete="off"
-          />
-        </div>
-        <div className="field-wrap">
-          <label>Repertoire</label>
-          <input
-            type="text"
-            name="repertoire"
-            value={repertoire}
-            autoComplete="off"
-          />
-        </div>
-        <div id="new-post">
-          <button type="button" onClick={this.props.handleModal}>
-            Cancel
-          </button>
-          <button type="submit" className="button button-block">
-            Submit Post
-          </button>
-        </div>
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={this.props.handelModal}>
+          Cancel
+        </Button>
+        <Button variant="contained" color="secondary" type="submit">
+          Submit
+        </Button>
       </form>
     )
   }

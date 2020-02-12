@@ -33,7 +33,8 @@
 .info-box-right .col-25,
 .signup-form .col-25,
 .login-form .col-25,
-.new-msg-form .col-25 {
+.new-msg-form .col-25,
+.new-post-form .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
@@ -43,7 +44,8 @@
 .info-box-right .col-75,
 .signup-form .col-75,
 .login-form .col-75,
-.new-msg-form .col-75 {
+.new-msg-form .col-75,
+.new-post-form .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
@@ -53,7 +55,8 @@
 .info-box-right .row:after,
 .signup-form .row:after,
 .login-form .row:after,
-.new-msg-form .row:after {
+.new-msg-form .row:after,
+.new-post-form .row:after {
   content: "";
   display: table;
   clear: both;
@@ -66,9 +69,7 @@
 .signup-form input,
 .signup-form textarea,
 .signup-form select,
-.login-form input,
-.new-msg-form input,
-.new-msg-form textarea {
+.login-form input {
   width: 100%;
   padding: 12px;
   border: 2px outset;
@@ -79,11 +80,25 @@
   background-color: rgb(238, 233, 230);
 }
 
+.new-msg-form input,
+.new-msg-form textarea,
+.new-post-form input,
+.new-post-form textarea,
+.new-post-form select {
+  width: 100%;
+  padding: 12px;
+  border: 2px outset;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
 .info-box-left label,
 .info-box-right label,
 .signup-form label,
 .login-form label,
-.new-msg-form label {
+.new-msg-form label,
+.new-post-form label {
   /* padding: 12px 12px 12px 0; */
   display: inline;
   font-size: large;

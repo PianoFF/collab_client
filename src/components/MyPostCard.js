@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   }
 })
 
-const PostCard = ({ post, user }) => {
+const MyPostCard = ({ post, user }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
@@ -88,15 +88,23 @@ const PostCard = ({ post, user }) => {
           color="secondary"
           variant="outlined"
           onClick={handelModal}>
-          Message
+          Edit
+        </Button>
+        <Button
+          size="small"
+          color="primary"
+          variant="text"
+          style={{ marginLeft: "48%" }}
+          onClick={handelModal}>
+          Delete
         </Button>
       </CardActions>
 
       <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
-        <NewMessage recipient={post.user} handelModal={handelModal} />
+        EditPostForm
       </Modal>
     </Card>
   )
 }
 
-export default PostCard
+export default MyPostCard

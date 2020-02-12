@@ -22,10 +22,10 @@ class NewMessage extends Component {
 
   sendNewMessage = e => {
     e.preventDefault()
-    this.props.handleModal()
+    this.props.handelModal()
 
     API.new_message(this.state)
-      .then(data => console.log(data))
+      .then(alert("Your message has been sent"))
       .catch(error => {
         alert(error)
       })
@@ -91,8 +91,7 @@ class NewMessage extends Component {
             type="submit"
             size="small"
             color="secondary"
-            variant="outlined"
-            onClick={this.props.handelModal}>
+            variant="outlined">
             Send
           </Button>
         </form>

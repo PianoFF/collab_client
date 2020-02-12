@@ -33,14 +33,15 @@ class LoggedInUser extends Component {
       })
   }
 
-  handleNewPost = newPost => {
+  handelNewPost = newPost => {
     API.newpost(newPost)
-      .then(post =>
+      .then(post => {
         this.setState({
           crnt_user_posts: [...this.state.crnt_user_posts, post],
           posts: [...this.state.posts, post]
         })
-      )
+        alert("Thank you for your post")
+      })
       .catch(error => {
         console.log(error)
         alert(error)
@@ -53,35 +54,38 @@ class LoggedInUser extends Component {
     API.clearToken()
   }
 
-  deletePost = postID => {
-    API.delete_post(postID)
-      .then(post =>
-        this.setState({
-          ...this.state,
-          posts: this.state.posts.filter(p => p.id !== post.id)
-        })
-      )
-      .catch(error => {
-        console.log(error)
-        alert(error)
-      })
-  }
+  // deletePost = postID => {
+  //   API.delete_post(postID)
+  //     .then(post =>
+  //       this.setState({
+  //         ...this.state,
+  //         posts: this.state.posts.filter(p => p.id !== post.id),
+  //         crnt_user_posts: this.state.crnt_user_posts.filter(
+  //           p => p.id !== post.id
+  //         )
+  //       })
+  //     )
+  //     .catch(error => {
+  //       console.log(error)
+  //       alert(error)
+  //     })
+  // }
 
-  handleDeletePost = postID => {
-    API.delete_post(postID)
-      .then(post =>
-        this.setState({
-          ...this.state,
-          crnt_user_posts: this.state.crnt_user_posts.filter(
-            p => p.id !== post.id
-          )
-        })
-      )
-      .catch(error => {
-        console.log(error)
-        alert(error)
-      })
-  }
+  // handleDeletePost = postID => {
+  //   API.delete_post(postID)
+  //     .then(post =>
+  //       this.setState({
+  //         ...this.state,
+  //         crnt_user_posts: this.state.crnt_user_posts.filter(
+  //           p => p.id !== post.id
+  //         )
+  //       })
+  //     )
+  //     .catch(error => {
+  //       console.log(error)
+  //       alert(error)
+  //     })
+  // }
 
   render() {
     const { posts, users, crnt_user_posts } = this.state
@@ -99,6 +103,7 @@ class LoggedInUser extends Component {
             <Home
               // user={user}
               deletePost={this.deletePost}
+              handelNewPost={this.handelNewPost}
               users={users}
               posts={posts}
             />
@@ -107,7 +112,7 @@ class LoggedInUser extends Component {
             <Posts
               user={user}
               crnt_user_posts={crnt_user_posts}
-              handleNewPost={this.handleNewPost}
+              handelNewPost={this.handelNewPost}
               handleDeletePost={this.handleDeletePost}
             />
           </Route>
