@@ -1,0 +1,13 @@
+    API.all_users()
+      .then(userData => this.setState({ users: userData }))
+      .catch(error => {
+        console.log(error)
+        alert(error)
+      })
+
+
+        const handleDeletePost = e => {
+    e.preventDefault()
+    alert("You are about to delete this post")
+    deletePost(post.id)
+  }

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import API from "../API/API"
+import Button from "@material-ui/core/Button"
 
 class NewMessage extends Component {
   defaultState = {
@@ -22,12 +23,10 @@ class NewMessage extends Component {
   sendNewMessage = e => {
     e.preventDefault()
     this.props.handleModal()
-    // this.state.title.length > 0 &&
-    //   this.state.content.length > 0 &&
+
     API.new_message(this.state)
       .then(data => console.log(data))
       .catch(error => {
-        console.log(error)
         alert(error)
       })
 
@@ -42,42 +41,60 @@ class NewMessage extends Component {
     return (
       <div className="new-msg">
         <form
-          id="new-msg"
+          className="new-msg-form"
           onChange={this.handleFormChange}
           onSubmit={this.sendNewMessage}>
-          <div>
-            <label>
-              Title: <span className="req">*</span>
-            </label>
-            <input
-              type="text"
-              name="title"
-              placeholder="title"
-              required
-              autoComplete="off"
-              value={title}
-            />
+          <div className="action_page.php">
+            <div className="row">
+              <div className="col-25">
+                <label>
+                  Title: <span className="req">*</span>
+                </label>
+              </div>
+              <div className="col-75">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="title"
+                  required
+                  autoComplete="off"
+                  value={title}
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-25">
+                <label>
+                  Message: <span className="req">*</span>
+                </label>
+              </div>
+              <div className="col-75">
+                <textarea
+                  name="content"
+                  placeholder="Your Message"
+                  required
+                  autoComplete="off"
+                  value={content}
+                />
+              </div>
+            </div>
           </div>
-          <div>
-            <label>
-              Message: <span className="req">*</span>
-            </label>
-            <textarea
-              name="content"
-              placeholder="Your Message"
-              required
-              autoComplete="off"
-              value={content}
-            />
-          </div>
-          <div id="new-message">
-            <button id="cancel" type="button" onClick={this.props.handleModal}>
-              Cancel
-            </button>
-            <button id="send-msg" type="submit">
-              Send
-            </button>
-          </div>
+          <Button
+            size="small"
+            color="secondary"
+            variant="outlined"
+            onClick={this.props.handelModal}>
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            size="small"
+            color="secondary"
+            variant="outlined"
+            onClick={this.props.handelModal}>
+            Send
+          </Button>
         </form>
       </div>
     )

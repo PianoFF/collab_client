@@ -14,18 +14,10 @@ import Manifesto from "./components/Manifesto"
 class LoggedInUser extends Component {
   state = {
     posts: [],
-    users: [],
     crnt_user_posts: []
   }
 
   componentDidMount() {
-    API.all_users()
-      .then(userData => this.setState({ users: userData }))
-      .catch(error => {
-        console.log(error)
-        alert(error)
-      })
-
     API.all_posts()
       .then(postsData => {
         this.setState({
@@ -105,7 +97,7 @@ class LoggedInUser extends Component {
           </Route>
           <Route exact path={"/home"}>
             <Home
-              user={user}
+              // user={user}
               deletePost={this.deletePost}
               users={users}
               posts={posts}

@@ -26,13 +26,7 @@ const useStyles = makeStyles({
   }
 })
 
-const PostCard = ({ post, showMessageBox, user, deletePost }) => {
-  const handleDeletePost = e => {
-    e.preventDefault()
-    alert("You are about to delete this post")
-    deletePost(post.id)
-  }
-
+const PostCard = ({ post, user }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
@@ -51,6 +45,10 @@ const PostCard = ({ post, showMessageBox, user, deletePost }) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)"
+    },
+    overlay: {
+      position: "fixed",
+      top: "0"
     }
   }
 
@@ -88,9 +86,14 @@ const PostCard = ({ post, showMessageBox, user, deletePost }) => {
           onClick={handelShowMore}>
           {showMore ? "close" : "read more"}
         </Button>
+        <Button
+          size="small"
+          color="secondary"
+          variant="outlined"
+          onClick={handelModal}>
+          Message
+        </Button>
       </CardActions>
-
-      {/* <p> {post.content} </p> */}
 
       <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
         <NewMessage recipient={post.user} handelModal={handelModal} />
