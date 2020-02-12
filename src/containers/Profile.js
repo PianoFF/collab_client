@@ -3,6 +3,7 @@ import "./ProfileAndForm.css"
 import API from "../API/API"
 import UserInfoEditForm from "../components/UserInfoEditForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
+import FileStore from "../components/FileStore"
 
 class Profile extends Component {
   state = {
@@ -101,7 +102,7 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-btm">
-              <h3> PDF files: CV, resume, repertoire_list come here</h3>
+              <FileStore />
             </div>
           </>
         )}
