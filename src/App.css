@@ -44,7 +44,7 @@ body,
 #app > div,
 #AppLoggedIn > div {
   height: 100%;
-  background-image: url("./bckgrnd-img.jpg");
+  background: url("./bckgrnd-img.jpg");
   background-attachment: fixed;
   background-size: cover;
   font-family: "Kalam", cursive;
@@ -54,10 +54,11 @@ a.active {
   color: #5d4e5e;
 }
 
-html {
-  overflow: scroll;
-  /* overflow-x: hidden; */
-}
+/* html { */
+/* overflow: scroll; */
+/* overflow-x: hidden; */
+/* } */
+
 ::-webkit-scrollbar {
   width: 0px;
 }

@@ -37,6 +37,12 @@ class Home extends Component {
           size="small"
           color="secondary"
           variant="contained"
+          style={{
+            color: "white",
+            fontSize: "large",
+            position: "fixed",
+            marginLeft: "280px"
+          }}
           onClick={this.handleModal}>
           New Post
         </Button>

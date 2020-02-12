@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button"
 import Popper from "@material-ui/core/Popper"
 import Typography from "@material-ui/core/Typography"
 import Confirmation from "./Confirmation"
+import PostEditForm from "./PostEditForm"
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
   }
 })
 
-const MyPostCard = ({ post, user, deletePost }) => {
+const MyPostCard = ({ post, user, deletePost, updatePost }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [showMore, setShowMore] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -79,6 +80,9 @@ const MyPostCard = ({ post, user, deletePost }) => {
           {post.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
+          for: {post.post_type}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
           by: {post.user.first_name} {post.user.last_name}
         </Typography>
         <Typography variant="body2" component="p">
@@ -117,7 +121,11 @@ const MyPostCard = ({ post, user, deletePost }) => {
       </CardActions>
 
       <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
-        EditPostForm
+        <PostEditForm
+          handleModal={handleModal}
+          post={post}
+          updatePost={updatePost}
+        />
       </Modal>
       <Popper open={open} anchorEl={anchorEl}>
         <Confirmation

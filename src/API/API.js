@@ -8,6 +8,7 @@ const VALIDATE = `${COLLAB_ENDPOINT}/validate`
 
 const NEWPOST = `${COLLAB_ENDPOINT}/posts`
 const ALL_POSTS = `${COLLAB_ENDPOINT}/posts`
+const UPDATE_POST = `${COLLAB_ENDPOINT}/posts`
 // const MY_POSTS = `${COLLAB_ENDPOINT}/:id/posts`
 
 const ALL_USERS = `${COLLAB_ENDPOINT}/users`
@@ -111,6 +112,17 @@ const newpost = post => {
   }).then(to_json)
 }
 
+const update_post = (postID, newPostData) => {
+  return fetch(`${UPDATE_POST}/${postID}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    },
+    body: JSON.stringify(newPostData)
+  }).then(to_json)
+}
 const all_users = () => {
   return fetch(ALL_USERS, {
     method: "GET",
@@ -254,6 +266,7 @@ export default {
   all_posts,
   user_update,
   newpost,
+  update_post,
   my_posts,
   delete_post,
   new_message,

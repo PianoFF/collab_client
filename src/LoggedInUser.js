@@ -61,6 +61,19 @@ class LoggedInUser extends Component {
       })
   }
 
+  updatePost = (postID, newInfo) => {
+    API.update_post(postID, newInfo).then(post => {
+      this.setState({
+        crnt_user_posts: this.state.crnt_user_posts.map(p => {
+          return p.id === post.id ? post : p
+        }),
+        posts: this.state.posts.map(p => {
+          return p.id === post.id ? post : p
+        })
+      })
+    })
+  }
+
   deletePost = postID => {
     API.delete_post(postID)
       .then(post => {
@@ -104,6 +117,7 @@ class LoggedInUser extends Component {
             <Posts
               user={user}
               crnt_user_posts={crnt_user_posts}
+              updatePost={this.updatePost}
               handleNewPost={this.handleNewPost}
               deletePost={this.deletePost}
             />

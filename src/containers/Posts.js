@@ -3,7 +3,7 @@ import MyPostCard from "../components/MyPostCard"
 
 class Posts extends Component {
   render() {
-    const { user, crnt_user_posts, deletePost } = this.props
+    const { user, crnt_user_posts, deletePost, updatePost } = this.props
 
     return (
       <div className="flex-container post-container">
@@ -14,6 +14,7 @@ class Posts extends Component {
               post={post}
               user={user}
               deletePost={deletePost}
+              updatePost={updatePost}
             />
           ))}
         </div>
