@@ -30,22 +30,22 @@ class Login extends Component {
     const { email, password } = this.state
 
     return (
-      <div className="login-form">
-        <div className="tab-content">
-          <div id="login">
-            <h1 style={{ color: "#89D1D9", textAlign: "center" }}>
-              Welcome Back!
-            </h1>
+      <div className="login">
+        <h1 style={{ color: "#89D1D9", textAlign: "center" }}>Welcome Back!</h1>
 
-            <form
-              action="/"
-              method="post"
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}>
-              <div className="field-wrap">
+        <form
+          action="/"
+          className="login-form"
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}>
+          <div className="action_page.php">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Email Address<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="email"
                   name="email"
@@ -55,11 +55,15 @@ class Login extends Component {
                   value={email}
                 />
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Password<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="password"
                   name="password"
@@ -69,13 +73,12 @@ class Login extends Component {
                   value={password}
                 />
               </div>
-
-              <Button variant="contained" color="secondary" type="submit">
-                Log In
-              </Button>
-            </form>
+            </div>
+            <Button variant="contained" color="secondary" type="submit">
+              Log In
+            </Button>
           </div>
-        </div>
+        </form>
       </div>
     )
   }

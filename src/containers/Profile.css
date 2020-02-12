@@ -31,7 +31,8 @@
 
 .info-box-left .col-25,
 .info-box-right .col-25,
-.signup-form .col-25 {
+.signup-form .col-25,
+.login-form .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
@@ -39,7 +40,8 @@
 
 .info-box-left .col-75,
 .info-box-right .col-75,
-.signup-form .col-75 {
+.signup-form .col-75,
+.login-form .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
@@ -47,7 +49,8 @@
 
 .info-box-left .row:after,
 .info-box-right .row:after,
-.signup-form .row:after {
+.signup-form .row:after,
+.login-form .row:after {
   content: "";
   display: table;
   clear: both;
@@ -59,7 +62,8 @@
 .info-box-right select,
 .signup-form input,
 .signup-form textarea,
-.signup-form select {
+.signup-form select,
+.login-form input {
   width: 100%;
   padding: 12px;
   border: 2px outset;
@@ -72,12 +76,14 @@
 
 .info-box-left label,
 .info-box-right label,
-.signup-form label {
+.signup-form label,
+.login-form label {
   /* padding: 12px 12px 12px 0; */
   display: inline;
 }
 
-.signup-form label {
+.signup-form label,
+.login-form label {
   font-size: large;
 }
 
