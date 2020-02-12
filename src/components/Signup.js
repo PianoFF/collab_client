@@ -50,20 +50,21 @@ class Signup extends Component {
     } = this.state
 
     return (
-      <div className="signup-form">
-        <div className="tab-content">
-          <div id="signup">
-            <h1 style={{ color: "#89D1D9" }}>Sign Up for Free</h1>
-
-            <form
-              action="/"
-              method="post"
-              onChange={this.handleFormChange}
-              onSubmit={this.handleFormSubmit}>
-              <div className="field-wrap">
+      <div className="signup">
+        <h1 style={{ color: "#89D1D9" }}>Sign Up for Free</h1>
+        <form
+          action="/"
+          className="signup-form"
+          onChange={this.handleFormChange}
+          onSubmit={this.handleFormSubmit}>
+          <div className="action_page.php">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   First Name<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="text"
                   name="first_name"
@@ -72,11 +73,15 @@ class Signup extends Component {
                   autoComplete="off"
                 />
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Last Name<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="text"
                   name="last_name"
@@ -85,11 +90,15 @@ class Signup extends Component {
                   autoComplete="off"
                 />
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Email Address<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="email"
                   name="email"
@@ -98,21 +107,29 @@ class Signup extends Component {
                   autoComplete="off"
                 />
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   You are a/an: <span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <select name="field" value={field}>
                   <option value="vocalist"> Vocalist</option>
                   <option value="instrumentalist"> Instrumentalist</option>
                 </select>
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Set Password<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="password"
                   name="password"
@@ -121,11 +138,15 @@ class Signup extends Component {
                   autoComplete="off"
                 />
               </div>
+            </div>
 
-              <div className="field-wrap">
+            <div className="row">
+              <div className="col-25">
                 <label>
                   Confirm Password<span className="req">*</span>
                 </label>
+              </div>
+              <div className="col-75">
                 <input
                   type="password"
                   name="passsword_confirmation"
@@ -134,13 +155,12 @@ class Signup extends Component {
                   autoComplete="off"
                 />
               </div>
-
-              <Button variant="contained" color="secondary" type="submit">
-                Sign Up
-              </Button>
-            </form>
+            </div>
+            <Button variant="contained" color="secondary" type="submit">
+              Sign Up
+            </Button>
           </div>
-        </div>
+        </form>
       </div>
     )
   }

@@ -30,21 +30,24 @@
 }
 
 .info-box-left .col-25,
-.info-box-right .col-25 {
+.info-box-right .col-25,
+.signup-form .col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
 }
 
 .info-box-left .col-75,
-.info-box-right .col-75 {
+.info-box-right .col-75,
+.signup-form .col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
 }
 
 .info-box-left .row:after,
-.info-box-right .row:after {
+.info-box-right .row:after,
+.signup-form .row:after {
   content: "";
   display: table;
   clear: both;
@@ -53,11 +56,14 @@
 .info-box-left input,
 .info-box-left textarea,
 .info-box-right input,
-.info-box-right select {
+.info-box-right select,
+.signup-form input,
+.signup-form textarea,
+.signup-form select {
   width: 100%;
   padding: 12px;
   border: 2px outset;
-  border-color: #bf6c5a;
+  border-color: white;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
@@ -65,9 +71,14 @@
 }
 
 .info-box-left label,
-.info-box-right label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
+.info-box-right label,
+.signup-form label {
+  /* padding: 12px 12px 12px 0; */
+  display: inline;
+}
+
+.signup-form label {
+  font-size: large;
 }
 
 .info-box-right {
