@@ -10,14 +10,14 @@ class Home extends Component {
     modalIsOpen: false
   }
 
-  handelModal = () => {
+  handleModal = () => {
     this.setState({
       modalIsOpen: !this.state.modalIsOpen
     })
   }
 
   render() {
-    const { user, posts, handelNewPost } = this.props
+    const { user, posts, handleNewPost } = this.props
 
     const customStyles = {
       content: {
@@ -37,7 +37,7 @@ class Home extends Component {
           size="small"
           color="secondary"
           variant="contained"
-          onClick={this.handelModal}>
+          onClick={this.handleModal}>
           New Post
         </Button>
         <div id="posts">
@@ -48,8 +48,8 @@ class Home extends Component {
           style={customStyles}
           ariaHideApp={false}>
           <NewPostForm
-            handelModal={this.handelModal}
-            handelNewPost={handelNewPost}
+            handleModal={this.handleModal}
+            handleNewPost={handleNewPost}
           />
         </Modal>
       </div>

@@ -1,5 +1,4 @@
 import React from "react"
-import NewMessage from "./NewMessage"
 import Modal from "react-modal"
 import { useState } from "react"
 
@@ -8,7 +7,9 @@ import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
 import CardContent from "@material-ui/core/CardContent"
 import Button from "@material-ui/core/Button"
+import Popper from "@material-ui/core/Popper"
 import Typography from "@material-ui/core/Typography"
+import Confirmation from "./Confirmation"
 
 const useStyles = makeStyles({
   root: {
@@ -26,17 +27,31 @@ const useStyles = makeStyles({
   }
 })
 
-const MyPostCard = ({ post, user }) => {
+const MyPostCard = ({ post, user, deletePost }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [showMore, setShowMore] = useState(false)
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
-  const handelModal = () => {
+  const open = Boolean(anchorEl)
+  const id = open ? "simple-popper" : undefined
+
+  const handlePopper = event => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+  }
+
+  const handleModal = () => {
     setModalIsOpen(!modalIsOpen)
   }
 
-  const handelShowMore = () => {
+  const handleShowMore = () => {
     setShowMore(!showMore)
   }
+
+  const handleDeletePost = e => {
+    e.preventDefault()
+    deletePost(post.id)
+  }
+
   const customStyles = {
     content: {
       top: "50%",
@@ -80,22 +95,23 @@ const MyPostCard = ({ post, user }) => {
           size="small"
           color="secondary"
           variant="contained"
-          onClick={handelShowMore}>
+          onClick={handleShowMore}>
           {showMore ? "close" : "read more"}
         </Button>
         <Button
           size="small"
           color="secondary"
           variant="outlined"
-          onClick={handelModal}>
+          onClick={handleModal}>
           Edit
         </Button>
         <Button
+          type="button"
           size="small"
           color="primary"
           variant="text"
           style={{ marginLeft: "48%" }}
-          onClick={handelModal}>
+          onClick={handlePopper}>
           Delete
         </Button>
       </CardActions>
@@ -103,6 +119,12 @@ const MyPostCard = ({ post, user }) => {
       <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
         EditPostForm
       </Modal>
+      <Popper open={open} anchorEl={anchorEl}>
+        <Confirmation
+          handleDeletePost={handleDeletePost}
+          handlePopper={handlePopper}
+        />
+      </Popper>
     </Card>
   )
 }

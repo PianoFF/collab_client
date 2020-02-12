@@ -14,17 +14,17 @@ class NewPostForm extends Component {
   state = {
     ...this.defaultState
   }
-  handelFormChange = e => {
+  handleFormChange = e => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
     })
   }
 
-  handelFormSubmit = e => {
+  handleFormSubmit = e => {
     e.preventDefault()
-    this.props.handelNewPost(this.state)
-    this.props.handelModal()
+    this.props.handleNewPost(this.state)
+    this.props.handleModal()
     this.setState({
       ...this.defaultState
     })
@@ -36,8 +36,8 @@ class NewPostForm extends Component {
     return (
       <form
         className="new-post-form"
-        onChange={this.handelFormChange}
-        onSubmit={this.handelFormSubmit}>
+        onChange={this.handleFormChange}
+        onSubmit={this.handleFormSubmit}>
         <div className="action_page.php">
           <div className="row">
             <div className="col-25">
@@ -104,7 +104,7 @@ class NewPostForm extends Component {
         <Button
           variant="outlined"
           color="secondary"
-          onClick={this.props.handelModal}>
+          onClick={this.props.handleModal}>
           Cancel
         </Button>
         <Button variant="contained" color="secondary" type="submit">

@@ -22,7 +22,7 @@ class NewMessage extends Component {
 
   sendNewMessage = e => {
     e.preventDefault()
-    this.props.handelModal()
+    this.props.handleModal()
 
     API.new_message(this.state)
       .then(alert("Your message has been sent"))
@@ -84,7 +84,7 @@ class NewMessage extends Component {
             size="small"
             color="secondary"
             variant="outlined"
-            onClick={this.props.handelModal}>
+            onClick={this.props.handleModal}>
             Cancel
           </Button>
           <Button

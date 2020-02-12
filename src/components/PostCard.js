@@ -30,11 +30,11 @@ const PostCard = ({ post, user }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
-  const handelModal = () => {
+  const handleModal = () => {
     setModalIsOpen(!modalIsOpen)
   }
 
-  const handelShowMore = () => {
+  const handleShowMore = () => {
     setShowMore(!showMore)
   }
   const customStyles = {
@@ -80,20 +80,20 @@ const PostCard = ({ post, user }) => {
           size="small"
           color="secondary"
           variant="contained"
-          onClick={handelShowMore}>
+          onClick={handleShowMore}>
           {showMore ? "close" : "read more"}
         </Button>
         <Button
           size="small"
           color="secondary"
           variant="outlined"
-          onClick={handelModal}>
+          onClick={handleModal}>
           Message
         </Button>
       </CardActions>
 
       <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
-        <NewMessage recipient={post.user} handelModal={handelModal} />
+        <NewMessage recipient={post.user} handleModal={handleModal} />
       </Modal>
     </Card>
   )
