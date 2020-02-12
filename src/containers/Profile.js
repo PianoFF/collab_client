@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import "./Profile.css"
+import "./ProfileAndForm.css"
 import API from "../API/API"
 import UserInfoEditForm from "../components/UserInfoEditForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
-import Button from "@material-ui/core/Button"
 
 class Profile extends Component {
   state = {

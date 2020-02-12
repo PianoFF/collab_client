@@ -80,10 +80,6 @@
 .login-form label {
   /* padding: 12px 12px 12px 0; */
   display: inline;
-}
-
-.signup-form label,
-.login-form label {
   font-size: large;
 }
 
