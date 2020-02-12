@@ -113,13 +113,13 @@
 .info-box-btm {
   /* border-style: outset;
   border-color: #bf6c5a; */
-  display: inline-block;
-  margin-left: 30%;
-  margin-top: none;
-  width: 40%;
-  height: 25%;
-  text-align: left;
-  line-height: 75px;
+  /* display: inline-block; */
+  /* margin-left: 1em; */
+  /* margin-top: none; */
+  width: 100%;
+  height: 30%;
+  /* text-align: center; */
+  /* line-height: 75px; */
   font-size: 30px;
   align-self: center;
   overflow: scroll;

@@ -1,0 +1,11 @@
+.file-container,
+.file-container > div {
+  margin-right: 30%;
+  margin-left: 30%;
+  color: white;
+}
+.file-container > .file-item {
+  display: table-cell;
+  vertical-align: middle;
+  align-self: center;
+}

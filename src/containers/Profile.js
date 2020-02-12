@@ -3,7 +3,7 @@ import "./ProfileAndForm.css"
 import API from "../API/API"
 import UserInfoEditForm from "../components/UserInfoEditForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
-import FileStore from "../components/FileStore"
+import UserFileStore from "../components/UserFileStore"
 
 class Profile extends Component {
   state = {
@@ -102,7 +102,7 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-btm">
-              <FileStore />
+              <UserFileStore />
             </div>
           </>
         )}

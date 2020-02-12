@@ -24,12 +24,6 @@
   overflow: scroll;
 }
 
-/* .flex-container::-webkit-scrollbar,
-.inbox-container::-webkit-scrollbar,
-div.signuplogin::-webkit-scrollbar {
-  display: none;
-  background: transparent;
-} */
 .post-container > div {
   font-size: large;
 }
