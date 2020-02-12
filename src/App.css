@@ -53,3 +53,11 @@ body,
 a.active {
   color: #5d4e5e;
 }
+
+html {
+  overflow: scroll;
+  /* overflow-x: hidden; */
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
