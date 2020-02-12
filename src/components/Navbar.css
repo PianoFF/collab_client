@@ -66,6 +66,9 @@ a.active {
   color: #7399bb;
 }
 
+.dropdown-content a.active {
+  outline: 1px dashed white;
+}
 .dropdown:hover .dropdown-content {
   display: block;
   margin-left: 0%;

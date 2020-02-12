@@ -59,31 +59,6 @@ class App extends Component {
     })
   }
 
-  handleMessageStatus = msg => {
-    // const message = this.state.user.received_messages.find(
-    //   msg => msg.id === msgID
-    // )
-    this.setState({
-      user: {
-        ...this.state.user,
-        received_messages: this.state.user.received_messages.map(message =>
-          message.id === msg.id ? msg : message
-        )
-      }
-    })
-  }
-
-  handleReceiverMessageDelete = () => {
-    this.setState({
-      user: {
-        ...this.state.user,
-        received_messages: this.state.user.received_messages.filter(
-          msg => msg.receiver_delete === false
-        )
-      }
-    })
-  }
-
   render() {
     const { user } = this.state
 
@@ -96,7 +71,6 @@ class App extends Component {
               user={user}
               setUser={this.setUser}
               handleUpdateUser={this.handleUpdateUser}
-              handleMessageStatus={this.handleMessageStatus}
             />
           )}
         </div>

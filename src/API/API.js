@@ -155,6 +155,18 @@ const my_posts = userID => {
     }
   }).then(to_json)
 }
+
+const received_messages = userID => {
+  return fetch(`${ONE_USER}/${userID}/received_messages`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: localStorage.token
+    }
+  }).then(to_json)
+}
+
 const all_posts = () => {
   return fetch(ALL_POSTS, {
     method: "GET",
@@ -271,6 +283,7 @@ export default {
   delete_post,
   new_message,
   update_message,
+  received_messages,
   clearToken,
   hasToken,
   instrument,

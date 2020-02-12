@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import NewMessage from "./NewMessage"
 import Modal from "react-modal"
-import { useState } from "react"
-
+import { NavLink } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
@@ -63,9 +62,11 @@ const PostCard = ({ post, user }) => {
         <Typography variant="h5" component="h2">
           {post.title}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          by: {post.user.first_name} {post.user.last_name}
-        </Typography>
+        <NavLink to={`/profile/${post.user.id}`}>
+          <Typography className={classes.pos} color="textSecondary">
+            by: {post.user.first_name} {post.user.last_name}
+          </Typography>
+        </NavLink>
         <Typography variant="body2" component="p">
           Repertoire: {post.repertoire}
         </Typography>

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { NavLink } from "react-router-dom"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardActions from "@material-ui/core/CardActions"
@@ -44,7 +45,8 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
+    transform: "translate(-50%, -50%)",
+    width: "60%"
   }
 }
 
@@ -85,14 +87,16 @@ const MessageCard = ({ msg, handleMessageStatus }) => {
         <Card className={classes.root} variant="outlined">
           <h3> You Have a Message From: </h3>
           <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-              variant="h5"
-              component="h2">
-              {msg.sender.first_name + " " + msg.sender.last_name}
-            </Typography>
+            <NavLink to={`/profile/${msg.sender.id}`}>
+              <Typography
+                className={classes.title}
+                color="textSecondary"
+                gutterBottom
+                variant="h5"
+                component="h2">
+                {msg.sender.first_name + " " + msg.sender.last_name}
+              </Typography>
+            </NavLink>
             {msg.read && (
               <Typography className={classes.pos} color="textSecondary">
                 Read on: {msg.updated_at}

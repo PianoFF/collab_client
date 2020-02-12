@@ -94,7 +94,7 @@ class LoggedInUser extends Component {
 
   render() {
     const { posts, users, crnt_user_posts } = this.state
-    const { user, handleUpdateUser, handleMessageStatus } = this.props
+    const { user, handleUpdateUser } = this.props
 
     return (
       <div id="LoggedInUser">
@@ -132,7 +132,7 @@ class LoggedInUser extends Component {
               />
             )}></Route>
           <Route exact path={"/inbox"}>
-            <Inbox user={user} handleMessageStatus={handleMessageStatus} />
+            <Inbox user={user} />
           </Route>
         </Router>
       </div>
