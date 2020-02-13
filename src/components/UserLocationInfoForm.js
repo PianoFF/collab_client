@@ -67,7 +67,14 @@ class UserLocationInfoForm extends Component {
   }
 
   render() {
-    const { street, city_town, state_province, country, post_code } = this.state
+    const {
+      street,
+      city_town,
+      state_province,
+      country,
+      post_code,
+      user_state_province_input
+    } = this.state
     const { user, current_user } = this.props
 
     let readOnly = current_user.id === user.id ? "" : "disabled"
@@ -153,7 +160,7 @@ class UserLocationInfoForm extends Component {
                         disabled={readOnly}
                         type="text"
                         name="user_state_province_input"
-                        value={state_province}
+                        value={user_state_province_input}
                         placeholder="Type your province here"
                       />
                     </div>
