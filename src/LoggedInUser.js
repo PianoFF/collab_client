@@ -10,6 +10,7 @@ import Posts from "./containers/Posts"
 import Profile from "./containers/Profile"
 import Inbox from "./containers/Inbox"
 import Manifesto from "./components/Manifesto"
+import { CardActionArea } from "@material-ui/core"
 
 class LoggedInUser extends Component {
   state = {
@@ -44,6 +45,7 @@ class LoggedInUser extends Component {
     e.preventDefault()
     this.props.setUser(null)
     API.clearToken()
+    window.location.replace("/")
   }
 
   handleNewPost = newPost => {
