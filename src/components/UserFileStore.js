@@ -16,9 +16,9 @@ const UserFileStore = () => {
   const classes = useStyles()
 
   return (
-    <div className="file-container">
+    <form className="file-container">
       <div className="file-item">
-        <input id="file-input" type="file" />
+        <input id="file-input" type="file" direct_upload="true" />
         <PictureAsPdfIcon
           style={{ fontSize: 50 }}
           className={classes.hover}
@@ -44,17 +44,7 @@ const UserFileStore = () => {
         />
         <h3> Resume </h3>
       </div>
-    </div>
-    // <form>
-    //   <label htmlFor="file-input">
-    //     <PictureAsPdfIcon
-    //       style={{ fontSize: 80 }}
-    //       className={classes.hover}
-    //       color="secondary"
-    //     />
-    //   </label>
-    //   <input id="file-input" style={{ display: "none" }} type="file"></input>
-    // </form>
+    </form>
   )
 }
 

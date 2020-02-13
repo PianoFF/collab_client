@@ -4,6 +4,7 @@ import API from "../API/API"
 import UserInfoEditForm from "../components/UserInfoEditForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
 import UserFileStore from "../components/UserFileStore"
+import ViewerFileStore from "../components/ViewerFileStore"
 
 class Profile extends Component {
   state = {
@@ -102,7 +103,11 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-btm">
-              <UserFileStore />
+              {current_user.id === userProfile.id ? (
+                <UserFileStore />
+              ) : (
+                <ViewerFileStore />
+              )}
             </div>
           </>
         )}
