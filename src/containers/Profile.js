@@ -17,7 +17,6 @@ class Profile extends Component {
   userFetch = () => {
     API.one_user(this.props.match.params.userID)
       .then(user => {
-        // console.log(user)
         const userProfile = Object.fromEntries(
           Object.entries(user).filter(([key]) =>
             [
