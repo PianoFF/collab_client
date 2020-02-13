@@ -7,9 +7,10 @@ class UserInfoEditForm extends Component {
     last_name: this.props.user.last_name,
     email: this.props.user.email,
     bio_content: this.props.user.bio_content,
-    specialty: this.props.userVocal
-      ? this.props.userVocal
-      : this.props.userInstrumental
+    specialty:
+      this.props.user.field === "vocalist"
+        ? this.props.userVocal
+        : this.props.userInstrumental
   }
 
   handleUserInfoFormChange = e => {
@@ -27,9 +28,10 @@ class UserInfoEditForm extends Component {
         last_name: this.props.user.last_name,
         email: this.props.user.email,
         bio_content: this.props.user.bio_content,
-        specialty: this.props.userVocal
-          ? this.props.userVocal
-          : this.props.userInstrumental
+        specialty:
+          this.props.user.field === "vocalist"
+            ? this.props.userVocal
+            : this.props.userInstrumental
       })
     }
   }
@@ -45,8 +47,9 @@ class UserInfoEditForm extends Component {
       user: {
         ...newUserInfo,
         specialty: {
-          [this.props.userVocal ? "voice_type" : "instrument"]: this.state
-            .specialty
+          [this.props.user.field === "vocalist"
+            ? "voice_type"
+            : "instrument"]: this.state.specialty
         }
       }
     }
@@ -56,7 +59,7 @@ class UserInfoEditForm extends Component {
   }
 
   render() {
-    const { user, userVocal, current_user } = this.props
+    const { user, current_user } = this.props
 
     const { first_name, last_name, email, bio_content, specialty } = this.state
 
@@ -125,7 +128,9 @@ class UserInfoEditForm extends Component {
 
             <div className="row">
               <div className="col-25">
-                <label>{userVocal ? "Voice Type: " : "Instrument: "}</label>
+                <label>
+                  {user.field === "vocalist" ? "Voice Type: " : "Instrument: "}
+                </label>
               </div>
               <div className="col-75">
                 <input value={specialty} name="specialty" disabled={readOnly} />

@@ -13,7 +13,7 @@ const Manifesto = () => {
           <strong>
             <i>Collab</i>
           </strong>{" "}
-          is dedicated to provide a platform for modern musician to:
+          is dedicated to providing a platform for modern musicians to:
           <br />
           <i
             className="material-icons"
@@ -41,11 +41,11 @@ const Manifesto = () => {
               {" "}
               <i> Collab</i>
             </strong>{" "}
-            is not responsible to regulate this sacred and special market but
+            is not responsible for regulating this sacred and special market but
             only aims to provide the bridge to connect one's need to a possible
             solution. <br />
-            All transactions happen amongst individuals are personal behavior.
-            All{" "}
+            All transactions happening amongst individuals are personal
+            behavior. All{" "}
             <strong>
               <i> Collab </i>
             </strong>{" "}

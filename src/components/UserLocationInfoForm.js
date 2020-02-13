@@ -147,13 +147,14 @@ class UserLocationInfoForm extends Component {
                       <option>{state}</option>
                     ))}
                   </select>
-                  {state_province === "Not on the list" && (
+                  {!USStates.find(state => state === state_province) && (
                     <div className="col-75">
                       <input
                         disabled={readOnly}
                         type="text"
                         name="user_state_province_input"
-                        placeholder="Type your provice here"
+                        value={state_province}
+                        placeholder="Type your province here"
                       />
                     </div>
                   )}
