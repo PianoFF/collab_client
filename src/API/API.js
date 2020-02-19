@@ -41,6 +41,16 @@ const to_json = async res => {
 // }
 // }
 
+const file_upload = file => {
+  return fetch(`${COLLAB_ENDPOINT}/upload`, {
+    method: "POST",
+    headers: {
+      Authorization: localStorage.token
+    },
+    body: file
+  }).then(to_json)
+}
+
 const signup = user => {
   return fetch(SIGN_UP, {
     method: "POST",
@@ -288,5 +298,6 @@ export default {
   hasToken,
   instrument,
   voice_type,
-  new_location
+  new_location,
+  file_upload
 }

@@ -122,11 +122,11 @@ class Profile extends Component {
             </div>
 
             <div className="info-box-btm">
-              {/* {current_user.id === userProfile.id ? (
-                <UserFileStore />
+              {current_user.id === userProfile.id ? (
+                <UserFileStore current_user={current_user} />
               ) : (
                 <ViewerFileStore />
-              )} */}
+              )}
               {current_user.id !== userProfile.id && (
                 <>
                   <Button
