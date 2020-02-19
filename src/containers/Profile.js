@@ -1,13 +1,7 @@
 import React, { Component } from "react"
 import "./ProfileAndForm.css"
 import API from "../API/API"
-import UserInfoEditForm from "../components/UserInfoEditForm"
-import UserLocationInfoForm from "../components/UserLocationInfoForm"
-import Modal from "react-modal"
-import Button from "@material-ui/core/Button"
-import NewMessage from "../components/NewMessage"
-import UserFileStore from "../components/UserFileStore"
-import ViewerFileStore from "../components/ViewerFileStore"
+import UserProfile from "../components/UserProfile"
 
 class Profile extends Component {
   state = {
@@ -99,59 +93,18 @@ class Profile extends Component {
       }
     }
     return (
-      <div className="profile-container">
+      <>
         {userProfile && (
-          <>
-            <div className="info-box-left">
-              <UserInfoEditForm
-                user={userProfile}
-                userInstrumental={userInstrumental}
-                userVocal={userVocal}
-                current_user={current_user}
-                handleUpdateUser={handleUpdateUser}
-              />
-            </div>
-
-            <div className="info-box-right">
-              <UserLocationInfoForm
-                location={userLocation}
-                user={userProfile}
-                current_user={current_user}
-                handleUpdateUser={handleUpdateUser}
-              />
-            </div>
-
-            <div className="info-box-btm">
-              {current_user.id === userProfile.id ? (
-                <UserFileStore current_user={current_user} />
-              ) : (
-                <ViewerFileStore />
-              )}
-              {current_user.id !== userProfile.id && (
-                <>
-                  <Button
-                    size="small"
-                    color="secondary"
-                    variant="contained"
-                    style={{ marginLeft: "45%" }}
-                    onClick={this.handleModal}>
-                    Message
-                  </Button>
-                  <Modal
-                    isOpen={this.state.modalIsOpen}
-                    style={customStyles}
-                    ariaHideApp={false}>
-                    <NewMessage
-                      recipient={userProfile}
-                      handleModal={this.handleModal}
-                    />
-                  </Modal>
-                </>
-              )}
-            </div>
-          </>
+          <UserProfile
+            userProfile={userProfile}
+            userInstrumental={userInstrumental}
+            userVocal={userVocal}
+            userLocation={userLocation}
+            current_user={current_user}
+            handleUpdateUser={handleUpdateUser}
+          />
         )}
-      </div>
+      </>
     )
   }
 }

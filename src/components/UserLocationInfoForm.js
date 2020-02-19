@@ -77,8 +77,6 @@ class UserLocationInfoForm extends Component {
     } = this.state
     const { user, current_user } = this.props
 
-    let readOnly = current_user.id === user.id ? "" : "disabled"
-    // console.log(readOnly)
     return (
       <div className="location-container">
         <form
@@ -96,7 +94,6 @@ class UserLocationInfoForm extends Component {
                   placeholder="Street Info"
                   name="street"
                   value={street}
-                  disabled={readOnly}
                 />
               </div>
             </div>
@@ -111,7 +108,6 @@ class UserLocationInfoForm extends Component {
                     type="text"
                     placeholder="City / Town"
                     name="city_town"
-                    disabled={readOnly}
                     value={city_town}
                   />
                 </div>
@@ -126,7 +122,6 @@ class UserLocationInfoForm extends Component {
                     type="text"
                     placeholder="City / Town"
                     name="city_town"
-                    disabled={readOnly}
                     value={
                       city_town.length !== 0
                         ? `${city_town}, ${this.props.location.state_province}`
@@ -146,7 +141,6 @@ class UserLocationInfoForm extends Component {
                   <select
                     placeholder="State / Province"
                     name="state_province"
-                    disabled={readOnly}
                     value={state_province}>
                     <option> Select A State</option>
                     <option> Not on the list</option>
@@ -157,7 +151,6 @@ class UserLocationInfoForm extends Component {
                   {!USStates.find(state => state === state_province) && (
                     <div className="col-75">
                       <input
-                        disabled={readOnly}
                         type="text"
                         name="user_state_province_input"
                         value={user_state_province_input}
@@ -175,7 +168,6 @@ class UserLocationInfoForm extends Component {
               </div>
               <div className="col-75">
                 <select
-                  disabled={readOnly}
                   type="text"
                   value={country}
                   name="country"
@@ -193,7 +185,6 @@ class UserLocationInfoForm extends Component {
               </div>
               <div className="col-75">
                 <input
-                  disabled={readOnly}
                   type="text"
                   value={post_code}
                   name="post_code"
@@ -201,12 +192,9 @@ class UserLocationInfoForm extends Component {
                 />
               </div>
             </div>
-
-            {current_user.id === user.id && (
-              <Button variant="contained" color="secondary" type="submit">
-                Update
-              </Button>
-            )}
+            <Button variant="contained" color="secondary" type="submit">
+              Update
+            </Button>
           </div>
         </form>
       </div>

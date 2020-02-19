@@ -59,11 +59,9 @@ class UserInfoEditForm extends Component {
   }
 
   render() {
-    const { user, current_user } = this.props
+    const { user } = this.props
 
     const { first_name, last_name, email, bio_content, specialty } = this.state
-
-    let readOnly = current_user.id === user.id ? "" : "disabled"
 
     return (
       <div className="container">
@@ -78,7 +76,6 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
-                  disabled={readOnly}
                   type="text"
                   placeholder="First Name"
                   name="first_name"
@@ -93,7 +90,6 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
-                  disabled={readOnly}
                   type="text"
                   placeholder="Last Name"
                   name="last_name"
@@ -108,7 +104,6 @@ class UserInfoEditForm extends Component {
               </div>
               <div className="col-75">
                 <input
-                  disabled={readOnly}
                   type="email"
                   placeholder="email"
                   name="email"
@@ -133,7 +128,7 @@ class UserInfoEditForm extends Component {
                 </label>
               </div>
               <div className="col-75">
-                <input value={specialty} name="specialty" disabled={readOnly} />
+                <input value={specialty} name="specialty" />
               </div>
             </div>
 
@@ -142,19 +137,12 @@ class UserInfoEditForm extends Component {
                 <label> Short Bio: </label>
               </div>
               <div className="col-75">
-                <textarea
-                  value={bio_content}
-                  name="bio_content"
-                  disabled={readOnly}
-                />
+                <textarea value={bio_content} name="bio_content" />
               </div>
             </div>
-
-            {current_user.id === user.id && (
-              <Button variant="contained" color="secondary" type="submit">
-                Update
-              </Button>
-            )}
+            <Button variant="contained" color="secondary" type="submit">
+              Update
+            </Button>
           </div>
         </form>
       </div>
