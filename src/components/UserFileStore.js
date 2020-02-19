@@ -77,7 +77,7 @@ const UserFileStore = ({ current_user }) => {
   return (
     <form className="file-container" onSubmit={handleFileSubmit}>
       <div className="file-item">
-        <input id="file-rep" type="file" onChange={handleFile} />
+        <input id="file-rep" type="file"></input>
         <PictureAsPdfIcon
           style={{ fontSize: 50 }}
           className={classes.hover}
@@ -85,6 +85,7 @@ const UserFileStore = ({ current_user }) => {
         />
         <label> Rep-list</label>
       </div>
+
       <div className="file-item">
         <input id="file-cv" type="file" onChange={handleFile} />
         <PictureAsPdfIcon
@@ -94,6 +95,7 @@ const UserFileStore = ({ current_user }) => {
         />
         <label> CV </label>
       </div>
+
       <div className="file-item">
         <input id="file-resume" type="file" onChange={handleFile} />
         <PictureAsPdfIcon
@@ -103,6 +105,7 @@ const UserFileStore = ({ current_user }) => {
         />
         <label> Resume </label>
       </div>
+
       <Button
         type="submit"
         size="small"

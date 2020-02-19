@@ -78,7 +78,7 @@ class UserLocationInfoForm extends Component {
     const { user, current_user } = this.props
 
     return (
-      <div className="location-container">
+      <div className="container">
         <form
           className="user-location-form"
           onChange={this.handleUserLocationFormChange}

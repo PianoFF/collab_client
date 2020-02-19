@@ -1,11 +1,23 @@
-.file-container,
-.file-container > div {
-  margin-right: 30%;
-  margin-left: 30%;
+.file-container {
+  margin: auto;
   color: white;
+  display: flex;
+  justify-content: center;
 }
-.file-container > .file-item {
-  display: table-cell;
-  vertical-align: middle;
-  align-self: center;
+
+.file-container > div {
+  margin: 30px;
+}
+
+.file-container label,
+.file-container svg {
+  display: block;
+  padding-top: 1em;
+  font-size: 30px;
+}
+
+.file-container button {
+  margin-top: 20em;
+  display: flex;
+  order: -1;
 }

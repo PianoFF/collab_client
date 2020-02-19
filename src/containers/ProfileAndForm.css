@@ -1,4 +1,4 @@
-.profile-container {
+/* .profile-container {
   justify-content: space-around;
 }
 
@@ -13,24 +13,22 @@
   text-align: left;
   margin-bottom: 3em;
   margin-top: 2em;
-  vertical-align: top;
-  /* border-style: outset;
+  vertical-align: top; */
+/* border-style: outset;
   border-color: #bf6c5a; */
-  overflow: scroll;
+/* overflow: scroll;
 }
 
 .info-box-left {
   float: left;
   margin-left: 5em;
-}
-
-.info-box-left > .container,
-.info-box-right > .location-container {
+} */
+/* 
+.container {
   margin-top: 1em;
-}
+} */
 
-.info-box-left .col-25,
-.info-box-right .col-25,
+.container .col-25,
 .signup-form .col-25,
 .login-form .col-25,
 .new-msg-form .col-25,
@@ -40,8 +38,7 @@
   margin-top: 6px;
 }
 
-.info-box-left .col-75,
-.info-box-right .col-75,
+.container .col-75,
 .signup-form .col-75,
 .login-form .col-75,
 .new-msg-form .col-75,
@@ -51,8 +48,7 @@
   margin-top: 6px;
 }
 
-.info-box-left .row:after,
-.info-box-right .row:after,
+.container .row:after,
 .signup-form .row:after,
 .login-form .row:after,
 .new-msg-form .row:after,
@@ -62,10 +58,9 @@
   clear: both;
 }
 
-.info-box-left input,
-.info-box-left textarea,
-.info-box-right input,
-.info-box-right select,
+.container input,
+.container textarea,
+.container select,
 .signup-form input,
 .signup-form textarea,
 .signup-form select,
@@ -93,8 +88,7 @@
   resize: vertical;
 }
 
-.info-box-left label,
-.info-box-right label,
+.container label,
 .signup-form label,
 .login-form label,
 .new-msg-form label,
@@ -110,17 +104,11 @@
   overflow: scroll;
 }
 
-.info-box-btm {
-  /* border-style: outset;
-  border-color: #bf6c5a; */
-  /* display: inline-block; */
-  /* margin-left: 1em; */
-  /* margin-top: none; */
-  width: 100%;
+.container {
+  width: 80%;
   height: 30%;
-  /* text-align: center; */
-  /* line-height: 75px; */
-  font-size: 30px;
-  align-self: center;
+  font-size: 40px;
+  align-content: center;
   overflow: scroll;
+  margin: auto;
 }
