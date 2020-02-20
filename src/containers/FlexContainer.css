@@ -1,5 +1,6 @@
 .flex-container,
-.inbox-container {
+.inbox-container,
+.viewer-profile-tab {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,7 +12,8 @@
 }
 
 .flex-container > div,
-.inbox-container > div {
+.inbox-container > div,
+.viewer-profile-tab > div {
   /* background-color: #bf6c5a; */
   width: 45%;
   border-radius: 3%;

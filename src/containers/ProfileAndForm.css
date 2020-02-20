@@ -98,12 +98,6 @@
   font-size: large;
 }
 
-.info-box-right {
-  float: right;
-  margin-right: 5em;
-  overflow: scroll;
-}
-
 .container {
   width: 80%;
   height: 30%;

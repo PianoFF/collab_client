@@ -23,6 +23,9 @@ const theme = createMuiTheme({
       dark: "#385976",
       contrastText: "#000"
     }
+  },
+  typography: {
+    fontFamily: "Kalam"
   }
 })
 

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./ProfileAndForm.css"
 import API from "../API/API"
 import UserProfile from "../components/UserProfile"
+import ViewerProfile from "../components/ViewerProfile"
 
 class Profile extends Component {
   state = {
@@ -94,16 +95,26 @@ class Profile extends Component {
     }
     return (
       <>
-        {userProfile && (
-          <UserProfile
-            userProfile={userProfile}
-            userInstrumental={userInstrumental}
-            userVocal={userVocal}
-            userLocation={userLocation}
-            current_user={current_user}
-            handleUpdateUser={handleUpdateUser}
-          />
-        )}
+        {userProfile &&
+          (userProfile.id === current_user.id ? (
+            <UserProfile
+              userProfile={userProfile}
+              userInstrumental={userInstrumental}
+              userVocal={userVocal}
+              userLocation={userLocation}
+              current_user={current_user}
+              handleUpdateUser={handleUpdateUser}
+            />
+          ) : (
+            <ViewerProfile
+              userProfile={userProfile}
+              userInstrumental={userInstrumental}
+              userVocal={userVocal}
+              userLocation={userLocation}
+              current_user={current_user}
+              handleUpdateUser={handleUpdateUser}
+            />
+          ))}
       </>
     )
   }
