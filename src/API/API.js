@@ -1,4 +1,4 @@
-const COLLAB_ENDPOINT = "http://localhost:3000"
+const COLLAB_ENDPOINT = " https://collabat.herokuapp.com"
 
 const LOG_IN = `${COLLAB_ENDPOINT}/login`
 
