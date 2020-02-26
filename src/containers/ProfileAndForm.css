@@ -1,34 +1,4 @@
-/* .profile-container {
-  justify-content: space-around;
-}
-
-.profile-container > .info-box-left,
-.info-box-right {
-  display: inline-block;
-  color: white;
-  width: 35%;
-  height: 50%;
-  padding-left: 2%;
-  padding-right: 2%;
-  text-align: left;
-  margin-bottom: 3em;
-  margin-top: 2em;
-  vertical-align: top; */
-/* border-style: outset;
-  border-color: #bf6c5a; */
-/* overflow: scroll;
-}
-
-.info-box-left {
-  float: left;
-  margin-left: 5em;
-} */
-/* 
-.container {
-  margin-top: 1em;
-} */
-
-.container .col-25,
+.form-container .col-25,
 .signup-form .col-25,
 .login-form .col-25,
 .new-msg-form .col-25,
@@ -38,7 +8,7 @@
   margin-top: 6px;
 }
 
-.container .col-75,
+.form-container .col-75,
 .signup-form .col-75,
 .login-form .col-75,
 .new-msg-form .col-75,
@@ -48,7 +18,7 @@
   margin-top: 6px;
 }
 
-.container .row:after,
+.form-container .row:after,
 .signup-form .row:after,
 .login-form .row:after,
 .new-msg-form .row:after,
@@ -58,9 +28,9 @@
   clear: both;
 }
 
-.container input,
-.container textarea,
-.container select,
+.form-container input,
+.form-container textarea,
+.form-container select,
 .signup-form input,
 .signup-form textarea,
 .signup-form select,
@@ -83,12 +53,12 @@
   width: 100%;
   padding: 12px;
   border: 2px outset;
-  border-radius: 4px;
+  borderform-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
 }
 
-.container label,
+.form-container label,
 .signup-form label,
 .login-form label,
 .new-msg-form label,
@@ -98,8 +68,7 @@
   font-size: large;
 }
 
-.container {
-  width: 80%;
+.form-container {
   height: 30%;
   font-size: 40px;
   align-content: center;

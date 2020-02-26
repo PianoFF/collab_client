@@ -5,12 +5,26 @@
   justify-content: center;
 }
 
+.viewer-file-store {
+  color: white;
+  justify-content: center;
+  justify-content: space-evenly;
+  display: flex;
+}
+
 .file-container > div {
-  margin: 30px;
+  margin: 3em;
+}
+
+.viewer-file-store label {
+  width: 20px;
+  text-align: left;
+  float: left;
 }
 
 .file-container label,
-.file-container svg {
+.file-container svg,
+.viewer-file-store svg {
   display: block;
   padding-top: 1em;
   font-size: 30px;

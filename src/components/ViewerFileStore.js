@@ -1,7 +1,6 @@
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf"
 import { makeStyles } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
-import "./UserFileStore.css"
+import "./FileStore.css"
 import React from "react"
 
 const useStyles = makeStyles(theme => ({
@@ -16,39 +15,33 @@ const ViewerFileStore = () => {
   const classes = useStyles()
 
   return (
-    <div className="file-container">
+    <div className="viewer-file-store">
       <div className="file-item">
-        <label htmlFor="file-input">
-          <PictureAsPdfIcon
-            style={{ fontSize: 50 }}
-            className={classes.hover}
-            color="secondary"
-          />
-        </label>
-        <input id="file-input" style={{ display: "none" }} type="file"></input>
-        <h3> Rep-list</h3>
+        <PictureAsPdfIcon
+          style={{ fontSize: 50 }}
+          className={classes.hover}
+          color="secondary"
+        />
+        <label htmlFor="file-input">Repertoire List</label>
+        {/* <input id="file-input" style={{ display: "none" }} type="file"></input> */}
       </div>
       <div className="file-item">
-        <label htmlFor="file-input">
-          <PictureAsPdfIcon
-            style={{ fontSize: 50 }}
-            className={classes.hover}
-            color="secondary"
-          />
-        </label>
-        <input id="file-input" style={{ display: "none" }} type="file"></input>
-        <h3> CV </h3>
+        <PictureAsPdfIcon
+          style={{ fontSize: 50 }}
+          className={classes.hover}
+          color="secondary"
+        />
+        <label htmlFor="file-input">CV</label>
+        {/* <input id="file-input" style={{ display: "none" }} type="file"></input> */}
       </div>
       <div className="file-item">
-        <label htmlFor="file-input">
-          <PictureAsPdfIcon
-            style={{ fontSize: 50 }}
-            className={classes.hover}
-            color="secondary"
-          />
-        </label>
-        <input id="file-input" style={{ display: "none" }} type="file"></input>
-        <h3> Resume </h3>
+        <PictureAsPdfIcon
+          style={{ fontSize: 50 }}
+          className={classes.hover}
+          color="secondary"
+        />
+        <label htmlFor="file-input">Resume</label>
+        {/* <input id="file-input" style={{ display: "none" }} type="file"></input> */}
       </div>
     </div>
   )

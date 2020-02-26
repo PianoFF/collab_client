@@ -2,7 +2,7 @@ import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 import React, { useState } from "react"
-import "./UserFileStore.css"
+import "./FileStore.css"
 import API from "../API/API"
 
 const useStyles = makeStyles(theme => ({
@@ -75,7 +75,10 @@ const UserFileStore = ({ current_user }) => {
   }
 
   return (
-    <form className="file-container" onSubmit={handleFileSubmit}>
+    <form
+      className="file-container"
+      onSubmit={handleFileSubmit}
+      style={{ width: "80%" }}>
       <div className="file-item">
         <input id="file-rep" type="file"></input>
         <PictureAsPdfIcon

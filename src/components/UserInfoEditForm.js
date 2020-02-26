@@ -64,7 +64,7 @@ class UserInfoEditForm extends Component {
     const { first_name, last_name, email, bio_content, specialty } = this.state
 
     return (
-      <div className="container">
+      <div className="form-container" style={{ width: "80%" }}>
         <form
           className="user-form"
           onChange={this.handleUserInfoFormChange}

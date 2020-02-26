@@ -41,7 +41,8 @@ class Home extends Component {
             color: "white",
             fontSize: "large",
             position: "fixed",
-            marginLeft: "280px"
+            alignSelf: "self-end",
+            marginLeft: "30%"
           }}
           onClick={this.handleModal}>
           New Post
