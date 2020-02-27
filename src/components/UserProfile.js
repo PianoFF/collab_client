@@ -30,6 +30,7 @@ const UserProfile = ({
   userInstrumental,
   userVocal,
   userLocation,
+  userFile,
   current_user,
   handleUpdateUser
 }) => {
@@ -85,7 +86,7 @@ const UserProfile = ({
       )}
       {value === 2 && (
         <>
-          <UserFileStore current_user={current_user} />
+          <UserFileStore current_user={current_user} files={userFile} />
         </>
       )}
     </Paper>

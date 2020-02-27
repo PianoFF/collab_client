@@ -1,6 +1,7 @@
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton"
 import React, { useState } from "react"
 import "./FileStore.css"
 import API from "../API/API"
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const UserFileStore = ({ current_user }) => {
+const UserFileStore = ({ current_user, files }) => {
   const classes = useStyles()
 
   const [cv, setCv] = useState(null)
@@ -44,20 +45,22 @@ const UserFileStore = ({ current_user }) => {
       formDataCV.append("file[title]", `${current_user.first_name} cv`)
       formDataCV.append("file[file]", cv)
       formDataCV.append("file[type]", "cv")
-      API.file_upload(formDataCV).catch(error => {
-        console.log(error)
-        alert(error)
-      })
+      API.file_upload(formDataCV)
+        .then(msg => alert(msg.message))
+        .catch(error => {
+          alert(error)
+        })
     }
     if (resume !== null) {
       const formDataResume = new FormData()
       formDataResume.append("file[title]", `${current_user.first_name} resume`)
       formDataResume.append("file[file]", resume)
       formDataResume.append("file[type]", "resume")
-      API.file_upload(formDataResume).catch(error => {
-        console.log(error)
-        alert(error)
-      })
+      API.file_upload(formDataResume)
+        .then(msg => alert(msg.message))
+        .catch(error => {
+          alert(error)
+        })
     }
     if (repertoire !== null) {
       const formDataRepertoire = new FormData()
@@ -67,10 +70,11 @@ const UserFileStore = ({ current_user }) => {
       )
       formDataRepertoire.append("file[file]", repertoire)
       formDataRepertoire.append("file[type]", "repertoire_list")
-      API.file_upload(formDataRepertoire).catch(error => {
-        console.log(error)
-        alert(error)
-      })
+      API.file_upload(formDataRepertoire)
+        .then(msg => alert(msg.message))
+        .catch(error => {
+          alert(error)
+        })
     }
   }
 
@@ -80,33 +84,54 @@ const UserFileStore = ({ current_user }) => {
       onSubmit={handleFileSubmit}
       style={{ width: "80%" }}>
       <div className="file-item">
-        <input id="file-rep" type="file"></input>
-        <PictureAsPdfIcon
-          style={{ fontSize: 50 }}
-          className={classes.hover}
-          color="secondary"
+        <input id="file-rep" type="file" onChange={handleFile}></input>
+        <Button
+          aria-label="file"
+          variant="link"
+          href={files.rep_list}
+          startIcon={
+            <PictureAsPdfIcon
+              style={{ fontSize: 50 }}
+              className={classes.hover}
+              color="secondary"
+            />
+          }
         />
-        <label> Rep-list</label>
+        <label> {files.rep_list ? "view Reps" : "Rep-list"}</label>
       </div>
 
       <div className="file-item">
         <input id="file-cv" type="file" onChange={handleFile} />
-        <PictureAsPdfIcon
-          style={{ fontSize: 50 }}
-          className={classes.hover}
-          color="secondary"
+        <Button
+          aria-label="file"
+          variant="link"
+          href={files.cv}
+          startIcon={
+            <PictureAsPdfIcon
+              style={{ fontSize: 50 }}
+              className={classes.hover}
+              color="secondary"
+            />
+          }
         />
-        <label> CV </label>
+        <label>{files.cv ? "view CV" : "CV"} </label>
       </div>
 
       <div className="file-item">
         <input id="file-resume" type="file" onChange={handleFile} />
-        <PictureAsPdfIcon
-          style={{ fontSize: 50 }}
-          className={classes.hover}
-          color="secondary"
+        <Button
+          aria-label="file"
+          variant="link"
+          href={files.resume}
+          startIcon={
+            <PictureAsPdfIcon
+              style={{ fontSize: 50 }}
+              className={classes.hover}
+              color="secondary"
+            />
+          }
         />
-        <label> Resume </label>
+        <label> {files.resume ? "view Resume" : "Resume"} </label>
       </div>
 
       <Button
