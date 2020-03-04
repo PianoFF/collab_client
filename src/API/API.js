@@ -1,4 +1,4 @@
-const COLLAB_ENDPOINT = " https://collabat.herokuapp.com"
+const COLLAB_ENDPOINT = "http://api.collab.fangfeichen.com"
 
 const LOG_IN = `${COLLAB_ENDPOINT}/login`
 
