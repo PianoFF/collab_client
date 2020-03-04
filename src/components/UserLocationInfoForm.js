@@ -66,6 +66,9 @@ class UserLocationInfoForm extends Component {
     alert("Your information has been updated.")
   }
 
+  disabled = () => {
+    return this.props.user.id !== this.props.current_user.id
+  }
   render() {
     const {
       street,
@@ -93,6 +96,7 @@ class UserLocationInfoForm extends Component {
                   type="text"
                   placeholder="Street Info"
                   name="street"
+                  disabled={this.disabled()}
                   value={street}
                 />
               </div>
@@ -108,6 +112,7 @@ class UserLocationInfoForm extends Component {
                     type="text"
                     placeholder="City / Town"
                     name="city_town"
+                    disabled={this.disabled()}
                     value={city_town}
                   />
                 </div>
@@ -122,6 +127,7 @@ class UserLocationInfoForm extends Component {
                     type="text"
                     placeholder="City / Town"
                     name="city_town"
+                    disabled={this.disabled()}
                     value={
                       city_town.length !== 0
                         ? `${city_town}, ${this.props.location.state_province}`
@@ -141,6 +147,7 @@ class UserLocationInfoForm extends Component {
                   <select
                     placeholder="State / Province"
                     name="state_province"
+                    disabled={this.disabled()}
                     value={state_province}>
                     <option> Select A State</option>
                     <option> Not on the list</option>
@@ -154,6 +161,7 @@ class UserLocationInfoForm extends Component {
                         type="text"
                         name="user_state_province_input"
                         value={user_state_province_input}
+                        disabled={this.disabled()}
                         placeholder="Type your province here"
                       />
                     </div>
@@ -171,6 +179,7 @@ class UserLocationInfoForm extends Component {
                   type="text"
                   value={country}
                   name="country"
+                  disabled={this.disabled()}
                   placeholder="Country">
                   {CountryList.map(country => (
                     <option> {country}</option>
@@ -188,13 +197,16 @@ class UserLocationInfoForm extends Component {
                   type="text"
                   value={post_code}
                   name="post_code"
+                  disabled={this.disabled()}
                   placeholder="Post Code"
                 />
               </div>
             </div>
-            <Button variant="contained" color="secondary" type="submit">
-              Update
-            </Button>
+            {!this.disabled() && (
+              <Button variant="contained" color="secondary" type="submit">
+                Update
+              </Button>
+            )}
           </div>
         </form>
       </div>
