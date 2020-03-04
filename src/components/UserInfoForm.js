@@ -58,6 +58,10 @@ class UserInfoEditForm extends Component {
     alert("Your information has been updated.")
   }
 
+  disabled = () => {
+    return this.props.user.id !== this.props.current_user.id
+  }
+
   render() {
     const { user } = this.props
 
@@ -79,6 +83,7 @@ class UserInfoEditForm extends Component {
                   type="text"
                   placeholder="First Name"
                   name="first_name"
+                  disabled={this.disabled()}
                   value={first_name}
                 />
               </div>
@@ -93,6 +98,7 @@ class UserInfoEditForm extends Component {
                   type="text"
                   placeholder="Last Name"
                   name="last_name"
+                  disabled={this.disabled()}
                   value={last_name}
                 />
               </div>
@@ -107,6 +113,7 @@ class UserInfoEditForm extends Component {
                   type="email"
                   placeholder="email"
                   name="email"
+                  disabled={this.disabled()}
                   value={email}
                 />
               </div>
@@ -123,12 +130,16 @@ class UserInfoEditForm extends Component {
 
             <div className="row">
               <div className="col-25">
-                <label>
+                <label disabled={this.disabled()}>
                   {user.field === "vocalist" ? "Voice Type: " : "Instrument: "}
                 </label>
               </div>
               <div className="col-75">
-                <input value={specialty} name="specialty" />
+                <input
+                  value={specialty}
+                  name="specialty"
+                  disabled={this.disabled()}
+                />
               </div>
             </div>
 
@@ -137,12 +148,18 @@ class UserInfoEditForm extends Component {
                 <label> Short Bio: </label>
               </div>
               <div className="col-75">
-                <textarea value={bio_content} name="bio_content" />
+                <textarea
+                  value={bio_content}
+                  name="bio_content"
+                  disabled={this.disabled()}
+                />
               </div>
             </div>
-            <Button variant="contained" color="secondary" type="submit">
-              Update
-            </Button>
+            {!this.disabled() && (
+              <Button variant="contained" color="secondary" type="submit">
+                Update
+              </Button>
+            )}
           </div>
         </form>
       </div>

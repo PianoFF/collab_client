@@ -1,21 +1,30 @@
-import React, { useState } from "react"
-
-import "../containers/ProfileAndForm.css"
+import React from "react"
+import UserInfoForm from "./UserInfoForm"
 import ViewerFileStore from "./ViewerFileStore"
+import "../containers/ProfileAndForm.css"
 
 const ViewerProfile = ({
   userProfile,
   userInstrumental,
   userVocal,
   userLocation,
-  userFile,
   current_user,
-  handleUpdateUser
+  userFile
 }) => {
   return (
     <div className="viewer-profile">
       <div className="files">
         <ViewerFileStore files={userFile} />
+      </div>
+      <div className="user-content">
+        <div id="user-info">
+          <UserInfoForm
+            user={userProfile}
+            userInstrumental={userInstrumental}
+            userVocal={userVocal}
+            current_user={current_user}
+          />
+        </div>
       </div>
     </div>
   )

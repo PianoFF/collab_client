@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import "../containers/ProfileAndForm.css"
-import UserInfoEditForm from "../components/UserInfoEditForm"
+import UserInfoForm from "./UserInfoForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
 import UserFileStore from "../components/UserFileStore"
 import { makeStyles } from "@material-ui/core/styles"
@@ -65,7 +65,7 @@ const UserProfile = ({
       </Tabs>
       {value === 0 && (
         <>
-          <UserInfoEditForm
+          <UserInfoForm
             user={userProfile}
             userInstrumental={userInstrumental}
             userVocal={userVocal}
