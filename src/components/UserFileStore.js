@@ -78,10 +78,7 @@ const UserFileStore = ({ current_user, files }) => {
   }
 
   return (
-    <form
-      className="file-container"
-      onSubmit={handleFileSubmit}
-      style={{ width: "80%" }}>
+    <form className="file-container" onSubmit={handleFileSubmit}>
       <div className="file-item">
         <input id="file-rep" type="file" onChange={handleFile}></input>
         <Button
@@ -134,6 +131,7 @@ const UserFileStore = ({ current_user, files }) => {
       </div>
 
       <Button
+        id="submit-btn"
         type="submit"
         size="small"
         color="secondary"

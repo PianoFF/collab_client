@@ -63,7 +63,6 @@
 .login-form label,
 .new-msg-form label,
 .new-post-form label {
-  /* padding: 12px 12px 12px 0; */
   display: inline;
   font-size: large;
 }
