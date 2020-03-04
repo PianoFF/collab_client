@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 import "../containers/ProfileAndForm.css"
-import UserInfoEditForm from "../components/UserInfoEditForm"
+import UserInfoForm from "./UserInfoForm"
 import UserLocationInfoForm from "../components/UserLocationInfoForm"
 import UserFileStore from "../components/UserFileStore"
 import { makeStyles } from "@material-ui/core/styles"
@@ -30,6 +30,7 @@ const UserProfile = ({
   userInstrumental,
   userVocal,
   userLocation,
+  userFile,
   current_user,
   handleUpdateUser
 }) => {
@@ -64,7 +65,7 @@ const UserProfile = ({
       </Tabs>
       {value === 0 && (
         <>
-          <UserInfoEditForm
+          <UserInfoForm
             user={userProfile}
             userInstrumental={userInstrumental}
             userVocal={userVocal}
@@ -85,7 +86,7 @@ const UserProfile = ({
       )}
       {value === 2 && (
         <>
-          <UserFileStore current_user={current_user} />
+          <UserFileStore current_user={current_user} files={userFile} />
         </>
       )}
     </Paper>

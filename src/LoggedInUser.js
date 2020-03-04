@@ -141,7 +141,7 @@ class LoggedInUser extends Component {
   }
 }
 
-// declare your def props here
+// declare def props here
 // AppLoggedIn.defaultProps = {}
 
 export default LoggedInUser

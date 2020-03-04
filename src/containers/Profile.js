@@ -10,6 +10,11 @@ class Profile extends Component {
     userLocation: null,
     userVocal: null,
     userInstrumental: null,
+    userFile: {
+      cv: null,
+      resume: null,
+      rep_list: null
+    },
     modalIsOpen: false
   }
 
@@ -64,14 +69,30 @@ class Profile extends Component {
       })
   }
 
+  fetchFile = userID => {
+    // debugger
+    API.file_download(userID).then(data => {
+      this.setState({
+        ...this.state,
+        userFile: {
+          ...this.state.userFile,
+          resume: data.url_resume,
+          cv: data.url_cv,
+          rep_list: data.url_rep
+        }
+      })
+    })
+  }
   componentDidUpdate(newProps) {
     if (this.props.location.pathname !== newProps.location.pathname) {
       this.userFetch()
+      this.fetchFile(this.props.match.params.userID)
     }
   }
 
   componentDidMount() {
     this.userFetch()
+    this.fetchFile(this.props.match.params.userID)
   }
 
   render() {
@@ -79,7 +100,8 @@ class Profile extends Component {
       userProfile,
       userInstrumental,
       userVocal,
-      userLocation
+      userLocation,
+      userFile
     } = this.state
     const { current_user, handleUpdateUser } = this.props
     const customStyles = {
@@ -102,6 +124,7 @@ class Profile extends Component {
               userInstrumental={userInstrumental}
               userVocal={userVocal}
               userLocation={userLocation}
+              userFile={userFile}
               current_user={current_user}
               handleUpdateUser={handleUpdateUser}
             />
@@ -111,8 +134,8 @@ class Profile extends Component {
               userInstrumental={userInstrumental}
               userVocal={userVocal}
               userLocation={userLocation}
+              userFile={userFile}
               current_user={current_user}
-              handleUpdateUser={handleUpdateUser}
             />
           ))}
       </>

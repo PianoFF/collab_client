@@ -1,0 +1,54 @@
+.file-container {
+  margin: auto;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.viewer-file-store {
+  color: white;
+  justify-content: center;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.file-container > div {
+  margin: 3em;
+}
+
+.file-container label,
+.viewer-file-store label,
+.file-container svg,
+.viewer-file-store svg {
+  display: block;
+  padding-top: 1em;
+  font-size: 30px;
+}
+
+.file-container button {
+  margin-top: 20em;
+  display: flex;
+  order: -1;
+}
+
+.viewer-content {
+  /* border: solid; */
+  padding: 6vw;
+  position: relative;
+  backdrop-filter: blur(4px) contrast(0.8);
+}
+/* .viewer-content {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 20%;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  background: url("../bckgrnd-img.jpg") fixed center;
+  background-size: cover;
+  filter: blur(4px);
+  background-size: auto;
+  box-shadow: inset 0 0 0 50vw rgba(166, 145, 240, 0.404);
+} */

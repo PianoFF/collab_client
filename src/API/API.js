@@ -51,6 +51,15 @@ const file_upload = file => {
   }).then(to_json)
 }
 
+const file_download = userID => {
+  return fetch(`${ONE_USER}/${userID}/show_file`, {
+    method: "GET",
+    headers: {
+      Authorization: localStorage.token
+    }
+  }).then(to_json)
+}
+
 const signup = user => {
   return fetch(SIGN_UP, {
     method: "POST",
@@ -299,5 +308,6 @@ export default {
   instrument,
   voice_type,
   new_location,
-  file_upload
+  file_upload,
+  file_download
 }
