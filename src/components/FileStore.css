@@ -16,13 +16,14 @@
   margin: 3em;
 }
 
-.viewer-file-store label {
+/* .viewer-file-store label {
   width: 20px;
   text-align: left;
   float: left;
-}
+} */
 
 .file-container label,
+.viewer-file-store label,
 .file-container svg,
 .viewer-file-store svg {
   display: block;

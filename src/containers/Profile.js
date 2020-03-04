@@ -134,8 +134,8 @@ class Profile extends Component {
               userInstrumental={userInstrumental}
               userVocal={userVocal}
               userLocation={userLocation}
+              userFile={userFile}
               current_user={current_user}
-              handleUpdateUser={handleUpdateUser}
             />
           ))}
       </>

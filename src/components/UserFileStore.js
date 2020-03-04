@@ -1,7 +1,6 @@
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
-import IconButton from "@material-ui/core/IconButton"
 import React, { useState } from "react"
 import "./FileStore.css"
 import API from "../API/API"
